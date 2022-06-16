@@ -1,0 +1,51 @@
+.expanses__type {
+  -webkit-box-shadow: 0 0 2px #92987e;
+          box-shadow: 0 0 2px #92987e;
+  margin: 8px 0px;
+  padding: 5px;
+  background-color: #575b4a;
+}
+
+.expanses__type .expanses__title {
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.expanses__type .payment__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #92987e;
+  padding: 5px 0px;
+}
+
+.expanses__type .payment__row .payment__cell {
+  width: 25%;
+  text-align: center;
+}
+
+.expanses__type .payment__row .payment__for {
+  font-weight: bold;
+  color: #272b17;
+}
+
+.expanses__type .payment__row .payment__amount {
+  color: #92987e;
+  border: 1px solid #92987e;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}

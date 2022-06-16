@@ -1,0 +1,11 @@
+$color1: #272b17;
+$color2: #636754;
+$color5: #575b4a;
+$color3: #21270e;
+$color4: #92987e;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

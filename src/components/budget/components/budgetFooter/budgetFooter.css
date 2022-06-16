@@ -1,0 +1,16 @@
+.budget__footer {
+  -webkit-box-shadow: 0 0 2px #92987e;
+          box-shadow: 0 0 2px #92987e;
+  padding: 5px;
+  margin: 10px 0;
+  background-color: #575b4a;
+}
+
+.budget__footer .footer__title {
+  color: #92987e;
+}
+
+.budget__footer .footer__title span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

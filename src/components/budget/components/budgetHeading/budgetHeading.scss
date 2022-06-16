@@ -1,0 +1,14 @@
+@import "../../../../styles/styles";
+
+.budget__heading {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px $color4;
+    margin: 5px 0;
+    background-color: $color5;
+    .cel__heading {
+        width: 25%;
+        color: $color4;
+        text-align: center;
+    }
+}

@@ -1,0 +1,14 @@
+@import "../../styles/styles";
+
+.container {
+    background-color: $color2;
+    min-height: 97vh;
+    @include flexCenter;
+
+    .budget__wrapper {
+        width: 90%;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 5px white;
+    }
+}

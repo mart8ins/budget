@@ -1,0 +1,40 @@
+@import "../../../../styles/styles";
+
+.expanses__type {
+    box-shadow: 0 0 2px $color4;
+    margin: 8px 0px;
+    padding: 5px;
+    background-color: $color5;
+
+    .expanses__title {
+        text-transform: uppercase;
+        font-style: italic;
+    }
+
+    .payment__row {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $color4;
+        padding: 5px 0px;
+
+        .payment__cell {
+            width: 25%;
+            text-align: center;
+        }
+        .payment__for {
+            font-weight: bold;
+            color: $color1;
+        }
+        .payment__amount {
+            color: $color4;
+            border: 1px solid $color4;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

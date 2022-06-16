@@ -1,0 +1,54 @@
+.budget__header {
+  -webkit-box-shadow: 0 0 2px #92987e;
+          box-shadow: 0 0 2px #92987e;
+  padding: 5px;
+  margin: 10px 0;
+  background-color: #575b4a;
+}
+
+.budget__header .month {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  color: #92987e;
+}
+
+.budget__header .monthly__income__heading {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  text-align: center;
+  color: #92987e;
+}
+
+.budget__header .monthly__income__input__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.budget__header .monthly__income__input__container .monthly__income {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  width: 80px;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-right: 5px;
+  font-weight: bold;
+  background-color: #92987e;
+  color: whitesmoke;
+}
+
+.budget__header .monthly__income__input__container .monthly__income:focus {
+  border: none;
+  outline: none;
+}
+
+.budget__header .monthly__income__input__container .monthly__income__blured {
+  background-color: whitesmoke;
+  color: #92987e;
+}
