@@ -1,16 +1,20 @@
 @import "../../../../styles/styles";
 
 .budget__footer {
-    box-shadow: 0 0 2px $color4;
+    box-shadow: 0 0 2px $secondary-background;
     padding: 5px;
     margin: 10px 0;
-    background-color: $color5;
 
     .footer__title {
-        color: $color4;
+        color: $primary-color;
+        padding: 5px;
         span {
             font-weight: bold;
             font-size: 1.2rem;
+            background-color: $green-color;
+            color: $primary-color;
+            padding: 5px;
+            border-radius: 5px;
         }
     }
 }

@@ -3,12 +3,12 @@
 .budget__heading {
     display: flex;
     align-items: center;
-    box-shadow: 0 0 2px $color4;
+    box-shadow: 0 0 2px $primary-color;
     margin: 5px 0;
-    background-color: $color5;
     .cel__heading {
         width: 25%;
-        color: $color4;
+        color: $secondary-color;
         text-align: center;
+        font-family: "Kdam Thmor Pro", sans-serif;
     }
 }

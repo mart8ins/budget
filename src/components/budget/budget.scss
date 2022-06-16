@@ -1,11 +1,11 @@
 @import "../../styles/styles";
 
 .container {
-    background-color: $color2;
     min-height: 97vh;
     @include flexCenter;
 
     .budget__wrapper {
+        background-color: $main-background;
         width: 90%;
         border-radius: 5px;
         padding: 10px;

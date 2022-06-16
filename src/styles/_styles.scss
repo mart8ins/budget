@@ -1,8 +1,10 @@
-$color1: #272b17;
-$color2: #636754;
-$color5: #575b4a;
-$color3: #21270e;
-$color4: #92987e;
+$main-background: #191970;
+$secondary-background: #2a52be;
+
+$primary-color: #f0f8ff;
+$secondary-color: #87ceeb;
+
+$green-color: #32cd32;
 
 @mixin flexCenter {
     display: flex;

@@ -1,18 +1,17 @@
 @import "../../../../styles/styles";
 
 .budget__header {
-    box-shadow: 0 0 2px $color4;
+    box-shadow: 0 0 2px $primary-color;
     padding: 5px;
     margin: 10px 0;
-    background-color: $color5;
     .month {
         font-family: "Kdam Thmor Pro", sans-serif;
-        color: $color4;
+        color: $primary-color;
     }
     .monthly__income__heading {
         font-family: "Kdam Thmor Pro", sans-serif;
         text-align: center;
-        color: $color4;
+        color: $primary-color;
     }
 
     .monthly__income__input__container {
@@ -29,16 +28,17 @@
             letter-spacing: 1px;
             margin-right: 5px;
             font-weight: bold;
-            background-color: $color4;
+            background-color: darken($secondary-background, 15%);
             color: whitesmoke;
             &:focus {
                 border: none;
                 outline: none;
+                background-color: $secondary-background;
             }
         }
         .monthly__income__blured {
             background-color: whitesmoke;
-            color: $color4;
+            color: $primary-color;
         }
     }
 }

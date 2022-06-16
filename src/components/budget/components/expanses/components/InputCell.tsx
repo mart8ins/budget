@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { BudgetContext } from "../../../../context";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 function InputCell({ name, value, expansesId, subjectId }: Props) {
     const [val, setVal] = useState(value);
-    const { updateAmount } = useContext(BudgetContext);
+    const { budget, updateAmount } = useContext(BudgetContext);
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const handlePaymentInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +24,10 @@ function InputCell({ name, value, expansesId, subjectId }: Props) {
             updateAmount(expansesId, subjId, expansesType, val);
         }
     };
+
+    useEffect(() => {
+        setVal(value);
+    }, [budget.expanses]);
 
     return (
         <input

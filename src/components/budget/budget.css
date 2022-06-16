@@ -1,5 +1,4 @@
 .container {
-  background-color: #636754;
   min-height: 97vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,6 +12,7 @@
 }
 
 .container .budget__wrapper {
+  background-color: #191970;
   width: 90%;
   border-radius: 5px;
   padding: 10px;

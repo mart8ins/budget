@@ -1,20 +1,28 @@
 @import "../../../../styles/styles";
 
-.expanses__type {
-    box-shadow: 0 0 2px $color4;
-    margin: 8px 0px;
-    padding: 5px;
-    background-color: $color5;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
+.expanses__type {
+    box-shadow: 0 0 2px $primary-color;
+    margin: 8px 0px;
+    padding: 8px;
     .expanses__title {
         text-transform: uppercase;
         font-style: italic;
+        color: $primary-color;
     }
 
     .payment__row {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid $color4;
+        border-bottom: 1px solid $secondary-color;
         padding: 5px 0px;
 
         .payment__cell {
@@ -23,18 +31,34 @@
         }
         .payment__for {
             font-weight: bold;
-            color: $color1;
+            color: $primary-color;
         }
         .payment__amount {
-            color: $color4;
-            border: 1px solid $color4;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            border-radius: 30%;
+            width: 50px;
+            height: 35px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 0.9rem;
+            border: none;
+            background-color: $secondary-background;
+            color: $primary-color;
+            font-size: 1rem;
+        }
+        input[name="payment"]:focus,
+        input[name="payed"]:focus,
+        input[name="remaining"]:focus {
+            outline: none;
+            border: none;
+            color: whitesmoke;
+        }
+        // input[name="payed"] {
+        // }
+        input[name="remaining"] {
+            font-weight: bold;
+            pointer-events: none;
         }
     }
 }

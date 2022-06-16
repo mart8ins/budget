@@ -5,14 +5,14 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 0 2px #92987e;
-          box-shadow: 0 0 2px #92987e;
+  -webkit-box-shadow: 0 0 2px #f0f8ff;
+          box-shadow: 0 0 2px #f0f8ff;
   margin: 5px 0;
-  background-color: #575b4a;
 }
 
 .budget__heading .cel__heading {
   width: 25%;
-  color: #92987e;
+  color: #87ceeb;
   text-align: center;
+  font-family: "Kdam Thmor Pro", sans-serif;
 }
