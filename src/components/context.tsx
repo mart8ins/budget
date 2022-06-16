@@ -31,6 +31,7 @@ type Budget = {
 interface BudgetContext {
     budget: Budget;
     updateIncome: (income: string) => void;
+    updateAmount: (expansesId: string, expansesType: string, amount: string) => void;
 }
 export const BudgetContext = createContext({} as BudgetContext);
 
@@ -67,14 +68,14 @@ const BudgetContextprovider = ({ children }: any) => {
                 title: "Ogresgals",
                 subjects: [
                     {
-                        id: "3",
+                        id: "31",
                         payed: "55",
                         payment: "120",
                         remaining: "65",
                         title: "Pārtika",
                     },
                     {
-                        id: "6",
+                        id: "46",
                         payed: "155",
                         payment: "20",
                         remaining: "135",
@@ -88,6 +89,10 @@ const BudgetContextprovider = ({ children }: any) => {
 
     const updateIncome = (income: string) => {
         setBudget({ ...budget, monthlyIncome: income });
+    };
+
+    const updateAmount = (expansesId: string, expansesType: string, amount: string) => {
+        console.log(expansesId, expansesType, amount);
     };
 
     const calculateTotals = () => {
@@ -120,7 +125,7 @@ const BudgetContextprovider = ({ children }: any) => {
         calculateTotals();
     }, [budget.expanses, budget.monthlyIncome]);
 
-    return <BudgetContext.Provider value={{ budget, updateIncome }}>{children}</BudgetContext.Provider>;
+    return <BudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</BudgetContext.Provider>;
 };
 
 export default BudgetContextprovider;
