@@ -5,9 +5,10 @@ type Props = {
     name: string;
     value: string;
     expansesId: string;
+    subjectId: string;
 };
 
-function InputCell({ name, value, expansesId }: Props) {
+function InputCell({ name, value, expansesId, subjectId }: Props) {
     const [val, setVal] = useState(value);
     const { updateAmount } = useContext(BudgetContext);
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -17,10 +18,10 @@ function InputCell({ name, value, expansesId }: Props) {
     };
 
     const blurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
-        const expId = e.target.dataset.expansesId;
+        const subjId = e.target.dataset.subjectId;
         const expansesType = e.target.name;
-        if (expId && expansesType && val) {
-            updateAmount(expId, expansesType, val);
+        if (subjId && expansesId && expansesType) {
+            updateAmount(expansesId, subjId, expansesType, val);
         }
     };
 
@@ -32,8 +33,9 @@ function InputCell({ name, value, expansesId }: Props) {
             className="payment__cell payment__amount"
             value={val}
             type="number"
-            data-expanses-id={expansesId}
+            data-subject-id={subjectId}
             onBlur={blurHandler}
+            placeholder="0"
         />
     );
 }

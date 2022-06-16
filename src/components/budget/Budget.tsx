@@ -19,7 +19,7 @@ function Budget({}: Props) {
                 <BudgetHeading cel1="" cel2="Expenses" cel3="Amount payed" cel4="Remaining payment" />
 
                 {expanses.map((item) => {
-                    return <Expanses key={item.id} title={item.title} subjects={item.subjects} />;
+                    return <Expanses key={item.id} title={item.title} expansesId={item.id} subjects={item.subjects} />;
                 })}
 
                 <BudgetHeading cel1="Total" cel2={totals.payment} cel3={totals.payed} cel4={totals.remaining} />

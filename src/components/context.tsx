@@ -5,11 +5,11 @@ type Totals = {
     remaining: string;
 };
 type PaymentRow = {
-    id: String;
-    title: String;
-    payment: String;
-    payed: String;
-    remaining: String;
+    id: string;
+    title: string;
+    payment: string;
+    payed: string;
+    remaining: string;
 };
 
 type Expanses = {
@@ -31,7 +31,7 @@ type Budget = {
 interface BudgetContext {
     budget: Budget;
     updateIncome: (income: string) => void;
-    updateAmount: (expansesId: string, expansesType: string, amount: string) => void;
+    updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
 }
 export const BudgetContext = createContext({} as BudgetContext);
 
@@ -49,16 +49,16 @@ const BudgetContextprovider = ({ children }: any) => {
                 subjects: [
                     {
                         id: "3",
-                        payed: "55",
-                        payment: "120",
-                        remaining: "65",
+                        payed: "",
+                        payment: "",
+                        remaining: "",
                         title: "Pārtika",
                     },
                     {
                         id: "6",
-                        payed: "155",
-                        payment: "20",
-                        remaining: "135",
+                        payed: "",
+                        payment: "",
+                        remaining: "",
                         title: "Apkure",
                     },
                 ],
@@ -69,16 +69,16 @@ const BudgetContextprovider = ({ children }: any) => {
                 subjects: [
                     {
                         id: "31",
-                        payed: "55",
-                        payment: "120",
-                        remaining: "65",
+                        payed: "",
+                        payment: "",
+                        remaining: "",
                         title: "Pārtika",
                     },
                     {
                         id: "46",
-                        payed: "155",
-                        payment: "20",
-                        remaining: "135",
+                        payed: "",
+                        payment: "",
+                        remaining: "",
                         title: "Apkure",
                     },
                 ],
@@ -91,8 +91,28 @@ const BudgetContextprovider = ({ children }: any) => {
         setBudget({ ...budget, monthlyIncome: income });
     };
 
-    const updateAmount = (expansesId: string, expansesType: string, amount: string) => {
-        console.log(expansesId, expansesType, amount);
+    const updateAmount = (expansesId: string, subjectId: string, expansesType: string, amount: string) => {
+        const allExpanses = [...budget.expanses];
+        const filtered = budget.expanses.filter((exp) => {
+            return exp.id === expansesId;
+        })[0];
+        filtered.subjects.forEach((sub: any) => {
+            if (sub.id === subjectId) {
+                if (expansesType !== "remaining") {
+                    sub[expansesType] = amount;
+                    let res = +sub.payment - +sub.payed;
+                    sub.remaining = String(res);
+                }
+            }
+        });
+        const indexOfExp = allExpanses.findIndex((item) => {
+            return item.id === filtered.id;
+        });
+        allExpanses.splice(indexOfExp, 1, filtered);
+        setBudget({
+            ...budget,
+            expanses: allExpanses,
+        });
     };
 
     const calculateTotals = () => {
