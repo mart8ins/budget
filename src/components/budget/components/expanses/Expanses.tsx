@@ -20,7 +20,6 @@ function Expanses({ title, subjects }: Props) {
             <div className="expanses__title">{title}</div>
             {subjects &&
                 subjects.map((item, i) => {
-                    console.log(item.id);
                     return (
                         <div key={`${item.id}`} className="payment__row">
                             <div className="payment__cell payment__for">{item.title}</div>
