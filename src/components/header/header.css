@@ -1,3 +1,52 @@
 .header {
-  color: white;
+  background-color: #16182a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header div:nth-child(1),
+.header div:nth-child(2),
+.header div:nth-child(3) {
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  color: #a4ace7;
+}
+
+.header div:nth-child(1) {
+  font-size: 1rem;
+  font-style: italic;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.header div:nth-child(2) {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
+
+.header .app__logout {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.header .app__logout button {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-style: italic;
+  color: #a4ace7;
+  padding: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.header .app__logout button:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #42487e;
 }

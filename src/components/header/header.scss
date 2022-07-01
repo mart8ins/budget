@@ -1,3 +1,45 @@
+@import "../../styles/styles";
+
 .header {
-    color: white;
+    background-color: $header-background;
+    display: flex;
+
+    div:nth-child(1),
+    div:nth-child(2),
+    div:nth-child(3) {
+        text-align: center;
+        width: 100%;
+        padding: 5px;
+        color: #a4ace7;
+    }
+
+    div:nth-child(1) {
+        font-size: 1rem;
+        font-style: italic;
+        align-self: center;
+    }
+
+    div:nth-child(2) {
+        font-size: 1.3rem;
+        font-weight: bold;
+        font-family: "Kdam Thmor Pro", sans-serif;
+    }
+
+    .app__logout {
+        align-self: center;
+        button {
+            border: none;
+            background-color: transparent;
+            font-size: 1rem;
+            font-style: italic;
+            color: #a4ace7;
+            padding: 5px;
+            transition: 0.5s;
+            &:hover {
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: lighten($header-background, 25%);
+            }
+        }
+    }
 }

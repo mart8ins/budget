@@ -1,13 +1,20 @@
+// BUDGET
 $main-background: #191970;
 $secondary-background: #2a52be;
-
 $primary-color: #f0f8ff;
 $secondary-color: #87ceeb;
-
 $green-color: #32cd32;
+
+// HEADER AND AUTH
+$header-background: #16182a;
 
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+// @mixin flexRowEvenly {
+//     display: flex;
+//     justify-content: space-evenly;
+// }
