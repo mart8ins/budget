@@ -26,7 +26,7 @@ const AuthContextProvider = ({ children }: any) => {
         id: "",
         username: "",
         password: "",
-        status: false,
+        status: true,
         error: {
             status: false,
             message: "",

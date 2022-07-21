@@ -10,6 +10,11 @@ $header-background: #16182a;
 $header-color: #a4ace7;
 $error-color: #d03021;
 
+@mixin flexRowSpaceEvenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 @mixin flexCenter {
     display: flex;
     justify-content: center;

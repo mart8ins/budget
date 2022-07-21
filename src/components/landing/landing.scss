@@ -1,0 +1,6 @@
+@import "../../styles/styles";
+
+.landing__container {
+    height: 90vh;
+    @include flexCenter();
+}
