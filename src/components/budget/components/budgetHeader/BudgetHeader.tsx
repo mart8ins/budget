@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { BudgetContext } from "../../../context";
+import { BudgetContext } from "../../../budgetContext";
 import "./budgetHeader.css";
 
 function BudgetHeader() {

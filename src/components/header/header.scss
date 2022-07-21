@@ -10,7 +10,7 @@
         text-align: center;
         width: 100%;
         padding: 5px;
-        color: #a4ace7;
+        color: $header-color;
     }
 
     div:nth-child(1) {
@@ -32,7 +32,7 @@
             background-color: transparent;
             font-size: 1rem;
             font-style: italic;
-            color: #a4ace7;
+            color: $header-color;
             padding: 5px;
             transition: 0.5s;
             &:hover {

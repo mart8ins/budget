@@ -1,0 +1,60 @@
+@import "../../styles/styles";
+
+.auth__container {
+    height: 70vh;
+    @include flexCenter();
+
+    .auth__box {
+        width: 60%;
+        margin: 0 auto;
+        background-color: $header-background;
+
+        .auth__change {
+            display: flex;
+            color: darken($header-color, 40%);
+            font-family: "Kdam Thmor Pro", sans-serif;
+            .auth__option {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                transition: 0.5s;
+            }
+            .active__auth__option {
+                background-color: lighten($header-background, 10%);
+                color: lighten($header-color, 5%);
+            }
+        }
+        .auth__inputs {
+            padding: 20px;
+            background-color: lighten($header-background, 10%);
+            @include flexCenterColumn();
+
+            .auth__error {
+                color: $error-color;
+                position: absolute;
+                top: 20%;
+                font-weight: bold;
+                font-size: 0.8rem;
+            }
+
+            .input__ {
+                width: 90%;
+                text-align: center;
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: 1.5px;
+                border: none;
+                padding: 5px;
+                background-color: lighten($header-background, 20%);
+                color: lighten($header-color, 5%);
+                margin: 5px;
+                transition: 0.5s;
+                &:focus {
+                    outline: none;
+                    text-align: left;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

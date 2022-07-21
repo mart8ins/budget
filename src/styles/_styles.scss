@@ -7,6 +7,8 @@ $green-color: #32cd32;
 
 // HEADER AND AUTH
 $header-background: #16182a;
+$header-color: #a4ace7;
+$error-color: #d03021;
 
 @mixin flexCenter {
     display: flex;
@@ -14,7 +16,15 @@ $header-background: #16182a;
     align-items: center;
 }
 
-// @mixin flexRowEvenly {
-//     display: flex;
-//     justify-content: space-evenly;
-// }
+@mixin flexCenterColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexRowEvenly {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

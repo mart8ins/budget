@@ -1,5 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
-import { BudgetContext } from "../../../../context";
+import { BudgetContext } from "../../../../budgetContext";
 
 type Props = {
     name: string;

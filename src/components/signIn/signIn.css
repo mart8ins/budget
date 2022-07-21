@@ -1,0 +1,87 @@
+.auth__container {
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth__container .auth__box {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #16182a;
+}
+
+.auth__container .auth__box .auth__change {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #283597;
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
+
+.auth__container .auth__box .auth__change .auth__option {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.auth__container .auth__box .auth__change .active__auth__option {
+  background-color: #282b4b;
+  color: #b8beec;
+}
+
+.auth__container .auth__box .auth__inputs {
+  padding: 20px;
+  background-color: #282b4b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth__container .auth__box .auth__inputs .auth__error {
+  color: #d03021;
+  position: absolute;
+  top: 20%;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.auth__container .auth__box .auth__inputs .input__ {
+  width: 90%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border: none;
+  padding: 5px;
+  background-color: #393e6d;
+  color: #b8beec;
+  margin: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.auth__container .auth__box .auth__inputs .input__:focus {
+  outline: none;
+  text-align: left;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}

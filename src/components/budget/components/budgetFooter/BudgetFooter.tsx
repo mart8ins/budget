@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { BudgetContext } from "../../../context";
+import { BudgetContext } from "../../../budgetContext";
 import "./budgetFooter.css";
 
 type Props = {};

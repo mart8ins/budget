@@ -4,7 +4,7 @@ import BudgetHeader from "./components/budgetHeader/BudgetHeader";
 import BudgetHeading from "./components/budgetHeading/BudgetHeading";
 import Expanses from "./components/expanses/Expanses";
 import BudgetFooter from "./components/budgetFooter/BudgetFooter";
-import { BudgetContext } from "../context";
+import { BudgetContext } from "../budgetContext";
 
 type Props = {};
 

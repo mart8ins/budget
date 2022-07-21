@@ -1,17 +1,18 @@
 import "./header.css";
+import { useContext } from "react";
+import { AuthContext } from "../authContext";
 
 function Header() {
-    const userName = "Martins";
-    const logout = () => {
-        console.log("logout poga");
-    };
+    const {
+        user: { username, status },
+        logout,
+    } = useContext(AuthContext);
+
     return (
         <div className="header">
-            <div className="user__name">{userName}</div>
+            <div className="user__name">{username}</div>
             <div className="app__title">Budget</div>
-            <div className="app__logout">
-                <button onClick={logout}>Logout</button>
-            </div>
+            <div className="app__logout">{status && <button onClick={logout}>Logout</button>}</div>
         </div>
     );
 }
