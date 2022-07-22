@@ -3,6 +3,9 @@
 .header {
     background-color: $header-background;
     display: flex;
+    &:hover {
+        cursor: pointer;
+    }
 
     div:nth-child(1),
     div:nth-child(2),

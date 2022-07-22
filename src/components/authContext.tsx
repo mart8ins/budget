@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Budget } from "../models/types";
 
 type User = {
     id: string;
@@ -7,6 +8,10 @@ type User = {
     password: string;
     status: boolean;
     error: { status: boolean; message: string };
+    data: {
+        templates: {}[];
+        budgets: Budget[];
+    };
 };
 interface AuthContext {
     user: User;
@@ -15,8 +20,67 @@ interface AuthContext {
 }
 
 const allUser = [
-    { id: "1", username: "Mart8ins", password: "123", status: false },
-    { id: "2", username: "Aiga", password: "1234", status: false },
+    {
+        id: "1",
+        username: "Aiga",
+        password: "123",
+        status: false,
+        data: {
+            templates: [{}],
+            budgets: [
+                {
+                    id: "133",
+                    userId: "399",
+                    month: "June",
+                    monthlyIncome: "",
+                    remainingMoney: "",
+                    expanses: [
+                        {
+                            id: "1",
+                            title: "Aigai",
+                            subjects: [
+                                {
+                                    id: "3",
+                                    payed: "",
+                                    payment: "",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "6",
+                                    payed: "",
+                                    payment: "",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                        {
+                            id: "344",
+                            title: "Ogresgals",
+                            subjects: [
+                                {
+                                    id: "31",
+                                    payed: "",
+                                    payment: "",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "46",
+                                    payed: "",
+                                    payment: "",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                    ],
+                    totals: { payment: "", payed: "", remaining: "" },
+                },
+            ],
+        },
+    },
 ];
 
 export const AuthContext = createContext({} as AuthContext);
@@ -26,10 +90,14 @@ const AuthContextProvider = ({ children }: any) => {
         id: "",
         username: "",
         password: "",
-        status: true,
+        status: false,
         error: {
             status: false,
             message: "",
+        },
+        data: {
+            templates: [{}],
+            budgets: [{} as Budget],
         },
     });
 
@@ -45,6 +113,10 @@ const AuthContextProvider = ({ children }: any) => {
                 error: {
                     status: false,
                     message: "Invalid credentials",
+                },
+                data: {
+                    templates: [],
+                    budgets: [],
                 },
             });
         }
@@ -64,6 +136,10 @@ const AuthContextProvider = ({ children }: any) => {
                         status: false,
                         message: "Invalid credentials",
                     },
+                    data: {
+                        templates: userExists[0].data.templates,
+                        budgets: userExists[0].data.budgets,
+                    },
                 });
             } else {
                 setUser({
@@ -74,6 +150,10 @@ const AuthContextProvider = ({ children }: any) => {
                     error: {
                         status: true,
                         message: "Invalid credentials",
+                    },
+                    data: {
+                        templates: [],
+                        budgets: [],
                     },
                 });
             }
@@ -89,6 +169,10 @@ const AuthContextProvider = ({ children }: any) => {
             error: {
                 status: false,
                 message: "",
+            },
+            data: {
+                templates: [],
+                budgets: [],
             },
         });
     };

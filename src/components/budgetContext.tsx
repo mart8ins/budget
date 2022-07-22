@@ -1,32 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-type Totals = {
-    payment: string;
-    payed: string;
-    remaining: string;
-};
-type PaymentRow = {
-    id: string;
-    title: string;
-    payment: string;
-    payed: string;
-    remaining: string;
-};
-
-type Expanses = {
-    id: string;
-    title: string;
-    subjects: PaymentRow[];
-};
-
-type Budget = {
-    id: string;
-    userId: string;
-    month: string;
-    monthlyIncome: string;
-    remainingMoney: string;
-    expanses: Expanses[];
-    totals: Totals;
-};
+import { Budget } from "../models/types";
 
 interface BudgetContext {
     budget: Budget;

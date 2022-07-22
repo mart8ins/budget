@@ -5,6 +5,10 @@
   display: flex;
 }
 
+.header:hover {
+  cursor: pointer;
+}
+
 .header div:nth-child(1),
 .header div:nth-child(2),
 .header div:nth-child(3) {

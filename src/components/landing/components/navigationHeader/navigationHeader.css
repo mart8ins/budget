@@ -29,7 +29,6 @@
 
 .create__options__header .create__option .create__data {
   border-bottom: 1px solid #a4ace7;
-  color: #191970;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   width: 80%;
@@ -47,8 +46,6 @@
 
 .create__options__header .create__option .create__data:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 
 .create__options__header .create__option .see__data {
@@ -69,17 +66,19 @@
           align-items: center;
   text-align: center;
   margin-left: 10px;
-  background-color: #a4ace7;
-  color: white;
-  border-radius: 40%;
+  border-radius: 5px;
+  border: 1px solid #a4ace7;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  -webkit-box-shadow: 1px 2px 2px #191970;
-          box-shadow: 1px 2px 2px #191970;
 }
 
 .create__options__header .create__option .see__data:hover {
   cursor: pointer;
   -webkit-box-shadow: 2px 4px 4px #191970;
           box-shadow: 2px 4px 4px #191970;
+}
+
+.create__options__header .activeUI {
+  -webkit-box-shadow: 0px 4px 4px #191970;
+          box-shadow: 0px 4px 4px #191970;
 }

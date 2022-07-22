@@ -1,11 +1,30 @@
+import { useContext } from "react";
 import "./landing.css";
-import CreateOptionNoData from "./components/createOptionBtns/createOptionNoData/CreateOptionNoData";
-import { data } from "../navigationContext";
+import { AuthContext } from "../authContext";
+import { NavigationContext } from "../navigationContext";
+
+import CreateTemplate from "./components/createTemplate/CreateTemplate";
+import CreateBudget from "./components/createBudget/CreateBudget";
+import SeeTemplates from "./components/seeTemplates/SeeTemplates";
+import SeeBudgets from "./components/seeBudgets/SeeBudgets";
+import Budget from "../budget/Budget";
 
 type Props = {};
 
 function Landing({}: Props) {
-    return <div className="landing__container">{!data && <CreateOptionNoData />}</div>;
+    const { navigateTo } = useContext(NavigationContext);
+    const {
+        user: { data },
+    } = useContext(AuthContext);
+    return (
+        <div className="landing__container">
+            {navigateTo === "createTemplate" && <CreateTemplate />}
+            {navigateTo === "createBudget" && <CreateBudget />}
+            {navigateTo === "seeTemplates" && <SeeTemplates />}
+            {navigateTo === "seeBudgets" && <SeeBudgets />}
+            {navigateTo === "" && <Budget />}
+        </div>
+    );
 }
 
 export default Landing;

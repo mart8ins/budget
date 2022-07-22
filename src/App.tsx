@@ -4,18 +4,18 @@ import Landing from "./components/landing/Landing";
 import Header from "./components/header/Header";
 import SignIn from "./components/signIn/SignIn";
 import { AuthContext } from "./components/authContext";
-import CreateOptionData from "./components/landing/components/createOptionBtns/createOptionHeader/CreateOptionHeader";
-import { data } from "./components/navigationContext";
+import NavigationHeader from "./components/landing/components/navigationHeader/NavigationHeader";
 
 function App() {
     const {
-        user: { status },
+        user: { status, data },
     } = useContext(AuthContext);
 
+    console.log(data);
     return (
         <div className="App">
             <Header />
-            {status && data && <CreateOptionData />}
+            {status ? <NavigationHeader /> : null}
 
             {status ? <Landing /> : <SignIn />}
         </div>
