@@ -1,12 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-import { Budget } from "../models/types";
+import { BudgetContextInterface, Budget } from "../models/models";
 
-interface BudgetContext {
-    budget: Budget;
-    updateIncome: (income: string) => void;
-    updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
-}
-export const BudgetContext = createContext({} as BudgetContext);
+export const BudgetContext = createContext({} as BudgetContextInterface);
 
 const BudgetContextprovider = ({ children }: any) => {
     const [budget, setBudget] = useState<Budget>({

@@ -1,15 +1,7 @@
 import { createContext, useState } from "react";
+import { NavigationInterface } from "../models/models";
 
-interface Navigation {
-    navigateTo: string;
-    createTemplate: () => void;
-    seeTemplates: () => void;
-    createBudget: () => void;
-    seeBudgets: () => void;
-    seeLandingPage: () => void;
-}
-
-export const NavigationContext = createContext({} as Navigation);
+export const NavigationContext = createContext({} as NavigationInterface);
 
 const NavigationContextProvider = ({ children }: any) => {
     const [navigateTo, setNavigateTo] = useState("");
@@ -30,8 +22,6 @@ const NavigationContextProvider = ({ children }: any) => {
     const seeLandingPage = () => {
         setNavigateTo("");
     };
-
-    console.log(navigateTo);
 
     return (
         <NavigationContext.Provider value={{ navigateTo, createTemplate, seeTemplates, createBudget, seeBudgets, seeLandingPage }}>

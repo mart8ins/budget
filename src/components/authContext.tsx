@@ -1,103 +1,23 @@
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Budget } from "../models/types";
+import { AuthContextInterface, User } from "../models/models";
+import { allUsers } from "../models/data";
 
-type User = {
-    id: string;
-    username: string;
-    password: string;
-    status: boolean;
-    error: { status: boolean; message: string };
-    data: {
-        templates: {}[];
-        budgets: Budget[];
-    };
-};
-interface AuthContext {
-    user: User;
-    loggIn: (signUp: boolean, credentials: { username: string; password: string }) => void;
-    logout: () => void;
-}
+export const AuthContext = createContext({} as AuthContextInterface);
 
-const allUser = [
-    {
+const AuthContextProvider = ({ children }: any) => {
+    const [user, setUser] = useState<User>({
         id: "1",
         username: "Aiga",
         password: "123",
-        status: false,
-        data: {
-            templates: [{}],
-            budgets: [
-                {
-                    id: "133",
-                    userId: "399",
-                    month: "June",
-                    monthlyIncome: "",
-                    remainingMoney: "",
-                    expanses: [
-                        {
-                            id: "1",
-                            title: "Aigai",
-                            subjects: [
-                                {
-                                    id: "3",
-                                    payed: "",
-                                    payment: "",
-                                    remaining: "",
-                                    title: "Pārtika",
-                                },
-                                {
-                                    id: "6",
-                                    payed: "",
-                                    payment: "",
-                                    remaining: "",
-                                    title: "Apkure",
-                                },
-                            ],
-                        },
-                        {
-                            id: "344",
-                            title: "Ogresgals",
-                            subjects: [
-                                {
-                                    id: "31",
-                                    payed: "",
-                                    payment: "",
-                                    remaining: "",
-                                    title: "Pārtika",
-                                },
-                                {
-                                    id: "46",
-                                    payed: "",
-                                    payment: "",
-                                    remaining: "",
-                                    title: "Apkure",
-                                },
-                            ],
-                        },
-                    ],
-                    totals: { payment: "", payed: "", remaining: "" },
-                },
-            ],
-        },
-    },
-];
-
-export const AuthContext = createContext({} as AuthContext);
-
-const AuthContextProvider = ({ children }: any) => {
-    const [user, setUser] = useState({
-        id: "",
-        username: "",
-        password: "",
-        status: false,
+        status: true,
         error: {
             status: false,
             message: "",
         },
         data: {
-            templates: [{}],
-            budgets: [{} as Budget],
+            templates: [],
+            budgets: [],
         },
     });
 
@@ -123,7 +43,7 @@ const AuthContextProvider = ({ children }: any) => {
         if (!signUp) {
             // 1. send data to server, check it if user exists
             // 2. *************  this is only for test uses before backend
-            const userExists = allUser.filter((user) => {
+            const userExists = allUsers.filter((user) => {
                 return user.username === credentials.username && user.password === credentials.password;
             });
             if (userExists.length) {
