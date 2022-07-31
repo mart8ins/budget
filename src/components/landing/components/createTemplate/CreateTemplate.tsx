@@ -4,6 +4,12 @@ import { NavigationContext } from "../../../navigationContext";
 import "./createTemplate.css";
 import { BudgetTemplate, Expanses, PaymentRow } from "../../../../models/models";
 import { v4 as uuidv4 } from "uuid";
+import SaveTemplateBtn from "./components/saveTemplateBtn/SaveTemplateBtn";
+import BlockPreview from "./components/blockPreview/BlockPreview";
+import TitleInputs from "./components/titleInputs/TitleInputs";
+import BlockTitleInput from "./components/blockTitleInput/BlockTitleInput";
+import PaymentRowPreview from "./components/paymentRowPreview/PaymentRowPreview";
+import NewPaymentForBlock from "./components/newPaymentForBlock/NewPaymentForBlock";
 
 function CreateTemplate() {
     const { user } = useContext(AuthContext);
@@ -77,101 +83,42 @@ function CreateTemplate() {
         console.log(blocks);
     };
     return (
-        <div className="">
-            {blocks.length > 0 && template.title && template.monthlyIncome && (
-                <div>
-                    <button onClick={saveTemplate}>Save template</button>
-                </div>
-            )}
-            <div>
-                <div>
-                    <input onChange={handleChangeForTemplate} type="text" name="title" id="title" placeholder="Enter title" />
-                    <input
-                        onChange={handleChangeForTemplate}
-                        type="number"
-                        name="monthlyIncome"
-                        id="monthlyIncome"
-                        placeholder="Monthly income"
-                    />
-                </div>
+        <div className="template__container">
+            {blocks.length > 0 && template.title && template.monthlyIncome && <SaveTemplateBtn saveTemplate={saveTemplate} />}
 
-                <div>
-                    {blocks.map((block) => {
-                        return (
-                            <div>
-                                <h3>{block.title}</h3>
-                                <div>
-                                    {block.subjects.map((payment) => {
-                                        return (
-                                            <p>
-                                                {payment.title} <span>{payment.payment}</span>
-                                            </p>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+            <div className="title__inputs__and__blocks__preview__container">
+                <TitleInputs handleChangeForTemplate={handleChangeForTemplate} />
+                <BlockPreview blocks={blocks} />
             </div>
 
             {template.title && template.monthlyIncome && (
-                <div>
-                    <input
-                        onChange={handlePaymentBlockTitle}
-                        type="text"
-                        name="title"
-                        id="title"
-                        placeholder={blocks.length > 0 ? "Add new payment block title" : "Add payment block title"}
-                        value={paymentBlockTitle}
+                <div className="block__title__payment__rows__preview__container">
+                    <BlockTitleInput
+                        handlePaymentBlockTitle={handlePaymentBlockTitle}
+                        blocks={blocks}
+                        paymentBlockTitle={paymentBlockTitle}
                     />
 
                     {paymentBlockTitle &&
                         allPaymentRows.map((payment) => {
-                            return (
-                                <div>
-                                    <p>
-                                        {payment.title} <span>{payment.payment}</span>
-                                    </p>
-                                    <button onClick={() => deletePaymentRow(payment.id)}>Delete</button>
-                                </div>
-                            );
+                            return <PaymentRowPreview key={payment.id} payment={payment} deletePaymentRow={deletePaymentRow} />;
                         })}
+
+                    {allPaymentRows.length > 0 && (
+                        <button className="save__block__btn" onClick={addPaymentBlock}>
+                            Save <em>{paymentBlockTitle}</em> block
+                        </button>
+                    )}
                 </div>
             )}
 
             {paymentBlockTitle && template.title && template.monthlyIncome && (
                 <div>
-                    <div>
-                        <div>
-                            <input
-                                onChange={handleChangeForPaymentRow}
-                                type="text"
-                                name="title"
-                                id="title"
-                                placeholder="Payment for"
-                                value={paymentRow.title}
-                            />
-                            <input
-                                onChange={handleChangeForPaymentRow}
-                                type="number"
-                                name="payment"
-                                id="payment"
-                                placeholder="Payment"
-                                value={paymentRow.payment}
-                            />
-                            <div>
-                                <button disabled={!paymentRow.title || (!paymentRow.payment && true)} onClick={addPaymentRow}>
-                                    Add
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    {allPaymentRows.length > 0 && (
-                        <div>
-                            <button onClick={addPaymentBlock}>Add block</button>
-                        </div>
-                    )}
+                    <NewPaymentForBlock
+                        handleChangeForPaymentRow={handleChangeForPaymentRow}
+                        paymentRow={paymentRow}
+                        addPaymentRow={addPaymentRow}
+                    />
                 </div>
             )}
         </div>

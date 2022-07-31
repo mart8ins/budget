@@ -1,0 +1,21 @@
+@import "../../../../../styles/styles";
+
+.blocks__preview__container {
+    margin-top: 10px;
+    .block__preview {
+        padding: 5px;
+        margin: 5px;
+        box-shadow: 0 0 2px $header-color;
+        h4 {
+            margin: 0;
+            color: $header-color;
+            border-bottom: 2px solid $header-color;
+        }
+        p {
+            margin: 0;
+            color: $header-background;
+            padding: 0 80px;
+            @include flexRowSpaceBetween();
+        }
+    }
+}

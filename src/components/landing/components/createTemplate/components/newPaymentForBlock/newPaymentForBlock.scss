@@ -1,0 +1,17 @@
+@import "../../../../../../styles/styles";
+
+.new__payment__block__container {
+    padding-bottom: 50px;
+
+    .new__payment__input__container {
+        @include flexRowEvenly();
+    }
+
+    .new__payment__input {
+        @include inputs(90px, 0.9rem, 10px, 5px);
+    }
+
+    .add__payment__row__btn {
+        @include addSaveButtons(120px, 30px, auto, block, $header-background);
+    }
+}

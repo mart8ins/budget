@@ -1,0 +1,9 @@
+@import "../../../../../../styles/styles";
+
+.title__inputs {
+    @include flexCenterColumn();
+
+    .title__inputs__input {
+        @include inputs(140px, 1.3rem, 5px, 5px);
+    }
+}

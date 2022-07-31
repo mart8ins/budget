@@ -10,11 +10,6 @@ $header-background: #16182a;
 $header-color: #a4ace7;
 $error-color: #d03021;
 
-@mixin flexRowSpaceEvenly {
-    display: flex;
-    justify-content: space-evenly;
-}
-
 @mixin flexCenter {
     display: flex;
     justify-content: center;
@@ -32,4 +27,45 @@ $error-color: #d03021;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+@mixin flexRowSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin inputs($width, $fontSize, $paddingY, $paddingX) {
+    font-weight: bold;
+    padding: $paddingY $paddingX;
+    font-size: $fontSize;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    width: $width;
+    box-shadow: 0 0px 5px $header-color;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0px 5px $header-background;
+    }
+}
+
+@mixin addSaveButtons($width, $marginY, $marginX, $block, $background) {
+    display: $block;
+    margin: $marginY $marginX;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: $width;
+    background-color: lighten($background, 10%);
+    color: $primary-color;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px $background;
+    transition: 0.2s;
+    &:hover {
+        cursor: pointer;
+        background-color: $background;
+        box-shadow: 0px 7px 7px $background;
+    }
 }

@@ -1,0 +1,44 @@
+.payment__row__preview__container {
+  width: 60%;
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.payment__row__preview__container .payment__item {
+  width: 70%;
+  text-align: center;
+}
+
+.payment__row__preview__container .delete__row__btn {
+  display: inline;
+  margin: 0 0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 60px;
+  background-color: #e15043;
+  color: #f0f8ff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 4px 4px #d03021;
+          box-shadow: 0px 4px 4px #d03021;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.payment__row__preview__container .delete__row__btn:hover {
+  cursor: pointer;
+  background-color: #d03021;
+  -webkit-box-shadow: 0px 7px 7px #d03021;
+          box-shadow: 0px 7px 7px #d03021;
+}

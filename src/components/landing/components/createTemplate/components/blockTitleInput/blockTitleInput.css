@@ -1,0 +1,18 @@
+.block__title__input {
+  font-weight: bold;
+  padding: 5px 5px;
+  font-size: 1rem;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  width: 130px;
+  -webkit-box-shadow: 0 0px 5px #a4ace7;
+          box-shadow: 0 0px 5px #a4ace7;
+}
+
+.block__title__input:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0px 5px #16182a;
+          box-shadow: 0 0px 5px #16182a;
+}
