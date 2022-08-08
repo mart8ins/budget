@@ -5,7 +5,7 @@ export const allUsers = [
         password: "123",
         status: false,
         data: {
-            templates: [{}],
+            templates: [],
             budgets: [
                 {
                     id: "133",
@@ -58,6 +58,7 @@ export const allUsers = [
                     totals: { payment: "", payed: "", remaining: "" },
                 },
             ],
+            activeBudgetId: "133",
         },
     },
 ];

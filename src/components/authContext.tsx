@@ -18,6 +18,7 @@ const AuthContextProvider = ({ children }: any) => {
         data: {
             templates: [],
             budgets: [],
+            activeBudgetId: null,
         },
     });
 
@@ -37,6 +38,7 @@ const AuthContextProvider = ({ children }: any) => {
                 data: {
                     templates: [],
                     budgets: [],
+                    activeBudgetId: null,
                 },
             });
         }
@@ -59,6 +61,7 @@ const AuthContextProvider = ({ children }: any) => {
                     data: {
                         templates: userExists[0].data.templates,
                         budgets: userExists[0].data.budgets,
+                        activeBudgetId: userExists[0].data.activeBudgetId,
                     },
                 });
             } else {
@@ -74,6 +77,7 @@ const AuthContextProvider = ({ children }: any) => {
                     data: {
                         templates: [],
                         budgets: [],
+                        activeBudgetId: null,
                     },
                 });
             }
@@ -93,6 +97,7 @@ const AuthContextProvider = ({ children }: any) => {
             data: {
                 templates: [],
                 budgets: [],
+                activeBudgetId: null,
             },
         });
     };

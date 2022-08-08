@@ -1,12 +1,12 @@
 .blocks__preview__container {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .blocks__preview__container .block__preview {
   padding: 5px;
   margin: 5px;
-  -webkit-box-shadow: 0 0 2px #a4ace7;
-          box-shadow: 0 0 2px #a4ace7;
+  -webkit-box-shadow: 0 0 3px #a4ace7;
+          box-shadow: 0 0 3px #a4ace7;
 }
 
 .blocks__preview__container .block__preview h4 {
@@ -15,9 +15,20 @@
   border-bottom: 2px solid #a4ace7;
 }
 
+.blocks__preview__container .block__preview h4 span {
+  float: right;
+  color: #e8796f;
+  cursor: pointer;
+}
+
+.blocks__preview__container .block__preview h4 span:hover {
+  color: #d03021;
+}
+
 .blocks__preview__container .block__preview p {
   margin: 0;
-  color: #16182a;
+  font-weight: bold;
+  color: grey;
   padding: 0 80px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,19 +1,29 @@
-@import "../../../../../styles/styles";
+@import "../../../../../../styles/styles";
 
 .blocks__preview__container {
-    margin-top: 10px;
+    margin-top: 15px;
     .block__preview {
         padding: 5px;
         margin: 5px;
-        box-shadow: 0 0 2px $header-color;
+        box-shadow: 0 0 3px $header-color;
+
         h4 {
             margin: 0;
             color: $header-color;
             border-bottom: 2px solid $header-color;
+            span {
+                float: right;
+                color: lighten($error-color, 20%);
+                cursor: pointer;
+                &:hover {
+                    color: $error-color;
+                }
+            }
         }
         p {
             margin: 0;
-            color: $header-background;
+            font-weight: bold;
+            color: grey;
             padding: 0 80px;
             @include flexRowSpaceBetween();
         }

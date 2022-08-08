@@ -1,4 +1,20 @@
 // BUDGET
+export type Budget = {
+    id: string;
+    userId: string;
+    month: string;
+    monthlyIncome: string;
+    remainingMoney: string;
+    expanses: Expanses[];
+    totals: Totals;
+};
+
+export type Expanses = {
+    id: string;
+    title: string;
+    subjects: PaymentRow[];
+};
+
 export type Totals = {
     payment: string;
     payed: string;
@@ -12,24 +28,8 @@ export type PaymentRow = {
     remaining: string;
 };
 
-export type Expanses = {
-    id: string;
-    title: string;
-    subjects: PaymentRow[];
-};
-
-export type Budget = {
-    id: string;
-    userId: string;
-    month: string;
-    monthlyIncome: string;
-    remainingMoney: string;
-    expanses: Expanses[];
-    totals: Totals;
-};
-
-// BUDGET CONTEXT
-export interface BudgetContextInterface {
+// ACTIVE BUDGET CONTEXT
+export interface ActiveBudgetContextInterface {
     budget: Budget;
     updateIncome: (income: string) => void;
     updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
@@ -43,8 +43,9 @@ export type User = {
     status: boolean;
     error: { status: boolean; message: string };
     data: {
-        templates: {}[];
+        templates: BudgetTemplate[];
         budgets: Budget[];
+        activeBudgetId: string | null;
     };
 };
 // AUTH CONTEXT
@@ -64,10 +65,20 @@ export interface NavigationInterface {
     seeLandingPage: () => void;
 }
 
+// CREATE TEMPLATE CONTEXT
+export interface CreateTemplateContextInterface {
+    template: BudgetTemplate;
+    addTemplateData: (template: BudgetTemplate) => void;
+    addBlocks: (blocks: Expanses[]) => void;
+    deletePaymentBlock: (blockId: string) => void;
+    saveTemplate: () => void;
+}
+
 // BUDGET TEMPLATE
 export type BudgetTemplate = {
     id: string;
     userId: string;
     title: string;
     monthlyIncome: string;
+    blocks: Expanses[];
 };

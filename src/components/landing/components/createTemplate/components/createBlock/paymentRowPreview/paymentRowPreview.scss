@@ -6,10 +6,12 @@
     padding: 8px;
     background-color: $primary-color;
     border-radius: 5px;
+    background-color: darken($header-color, 15%);
 
     .payment__item {
         width: 70%;
         text-align: center;
+        color: white;
     }
 
     @include flexRowSpaceBetween();

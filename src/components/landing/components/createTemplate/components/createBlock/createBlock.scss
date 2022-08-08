@@ -1,0 +1,12 @@
+@import "../../../../../../styles/styles";
+
+.create__block__container {
+    @include flexCenterColumn();
+    .block__title__input {
+        @include inputs(100px, 0.9rem, 5px, 5px);
+    }
+
+    .save__block__btn {
+        @include addSaveButtons(auto, 15px, 5px, block, $header-background);
+    }
+}

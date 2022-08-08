@@ -1,17 +1,18 @@
+import { useState, useContext } from "react";
 import "./blockPreview.css";
 import { Expanses } from "../../../../../../models/models";
+import { CreateTemplateContext } from "../../../../../createTemplateContext";
 
-type Props = {
-    blocks: Expanses[];
-};
-
-const BlockPreview = ({ blocks }: Props) => {
+const BlockPreview = () => {
+    const { template, deletePaymentBlock } = useContext(CreateTemplateContext);
     return (
         <div className="blocks__preview__container">
-            {blocks.map((block) => {
+            {template.blocks.map((block) => {
                 return (
                     <div key={block.id} className="block__preview">
-                        <h4>{block.title}</h4>
+                        <h4>
+                            {block.title} <span onClick={() => deletePaymentBlock(block.id)}>Delete</span>
+                        </h4>
 
                         {block.subjects.map((payment) => {
                             return (

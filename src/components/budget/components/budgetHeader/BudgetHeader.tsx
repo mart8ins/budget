@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
-import { BudgetContext } from "../../../budgetContext";
+import { ActiveBudgetContext } from "../../../activeBudgetContext";
 import "./budgetHeader.css";
 
 function BudgetHeader() {
     const {
         budget: { month, monthlyIncome },
         updateIncome,
-    } = useContext(BudgetContext);
+    } = useContext(ActiveBudgetContext);
     const [edit, setEdit] = useState(false);
 
     const inputBlurHandler = () => {

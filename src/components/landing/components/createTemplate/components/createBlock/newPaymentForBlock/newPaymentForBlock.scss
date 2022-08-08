@@ -1,14 +1,15 @@
-@import "../../../../../../styles/styles";
+@import "../../../../../../../styles/styles";
 
 .new__payment__block__container {
     padding-bottom: 50px;
 
     .new__payment__input__container {
-        @include flexRowEvenly();
+        @include flexRowSpaceBetween();
     }
-
     .new__payment__input {
-        @include inputs(90px, 0.9rem, 10px, 5px);
+        width: 20%;
+        margin: 2px;
+        @include inputs(90px, 0.8rem, 10px, 15px);
     }
 
     .add__payment__row__btn {

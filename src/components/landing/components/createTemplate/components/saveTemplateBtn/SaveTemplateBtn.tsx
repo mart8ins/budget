@@ -1,16 +1,13 @@
+import { useContext } from "react";
+import { CreateTemplateContext } from "../../../../../createTemplateContext";
 import "./saveTemplateBtn.css";
 
-type Props = {
-    saveTemplate: () => void;
-};
-
-function SaveTemplateBtn({ saveTemplate }: Props) {
+function SaveTemplateBtn() {
+    const { saveTemplate } = useContext(CreateTemplateContext);
     return (
-        <div>
-            <button className="save__template__btn" onClick={saveTemplate}>
-                Save template
-            </button>
-        </div>
+        <button className="save__template__btn" onClick={saveTemplate}>
+            Save template
+        </button>
     );
 }
 

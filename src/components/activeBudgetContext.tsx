@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from "react";
-import { BudgetContextInterface, Budget } from "../models/models";
+import { ActiveBudgetContextInterface, Budget } from "../models/models";
 
-export const BudgetContext = createContext({} as BudgetContextInterface);
+export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterface);
 
-const BudgetContextprovider = ({ children }: any) => {
+const ActiveBudgetContextprovider = ({ children }: any) => {
     const [budget, setBudget] = useState<Budget>({
         id: "133",
         userId: "399",
@@ -113,7 +113,7 @@ const BudgetContextprovider = ({ children }: any) => {
         calculateTotals();
     }, [budget.expanses, budget.monthlyIncome]);
 
-    return <BudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</BudgetContext.Provider>;
+    return <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</ActiveBudgetContext.Provider>;
 };
 
-export default BudgetContextprovider;
+export default ActiveBudgetContextprovider;

@@ -4,14 +4,14 @@ import BudgetHeader from "./components/budgetHeader/BudgetHeader";
 import BudgetHeading from "./components/budgetHeading/BudgetHeading";
 import Expanses from "./components/expanses/Expanses";
 import BudgetFooter from "./components/budgetFooter/BudgetFooter";
-import { BudgetContext } from "../budgetContext";
+import { ActiveBudgetContext } from "../activeBudgetContext";
 
 type Props = {};
 
 function Budget({}: Props) {
     const {
         budget: { expanses, totals },
-    } = useContext(BudgetContext);
+    } = useContext(ActiveBudgetContext);
     return (
         <div className="container">
             <div className="budget__wrapper">

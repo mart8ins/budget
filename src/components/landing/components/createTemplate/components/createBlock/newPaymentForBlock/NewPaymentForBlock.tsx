@@ -1,6 +1,6 @@
 import React from "react";
 import "./newPaymentForBlock.css";
-import { PaymentRow } from "../../../../../../models/models";
+import { PaymentRow } from "../../../../../../../models/models";
 
 type Props = {
     handleChangeForPaymentRow: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,7 +18,7 @@ function NewPaymentForBlock({ handleChangeForPaymentRow, paymentRow, addPaymentR
                     type="text"
                     name="title"
                     id="title"
-                    placeholder="Payment for"
+                    placeholder="Add payment"
                     value={paymentRow.title}
                 />
                 <input
@@ -27,7 +27,7 @@ function NewPaymentForBlock({ handleChangeForPaymentRow, paymentRow, addPaymentR
                     type="number"
                     name="payment"
                     id="payment"
-                    placeholder="Payment"
+                    placeholder="Amount"
                     value={paymentRow.payment}
                 />
             </div>

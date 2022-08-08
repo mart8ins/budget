@@ -5,15 +5,9 @@
     margin: 25px auto;
     align-self: flex-start;
     padding-bottom: 100px;
-
-    .title__inputs__and__blocks__preview__container {
-        padding: 5px;
-    }
-
-    .block__title__payment__rows__preview__container {
-        @include flexCenterColumn();
-        .save__block__btn {
-            @include addSaveButtons(auto, 20px, 0, inline-block, $green-color);
-        }
+    .payment__rows__are {
+        background-color: $header-color;
+        border-radius: 10px;
+        margin: 5px 15px;
     }
 }

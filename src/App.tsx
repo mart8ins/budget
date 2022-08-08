@@ -11,7 +11,6 @@ function App() {
         user: { status, data },
     } = useContext(AuthContext);
 
-    console.log(data);
     return (
         <div className="App">
             <Header />

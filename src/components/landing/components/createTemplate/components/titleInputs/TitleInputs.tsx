@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import "./titleInputs.css";
+import { CreateTemplateContext } from "../../../../../createTemplateContext";
 
-type Props = {
-    handleChangeForTemplate: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+function TitleInputs() {
+    const { addTemplateData, template } = useContext(CreateTemplateContext);
+    const handleChangeForTemplate = (e: React.ChangeEvent<HTMLInputElement>) => {
+        addTemplateData({
+            ...template,
+            [e.target.name]: e.target.value,
+        });
+    };
 
-function TitleInputs({ handleChangeForTemplate }: Props) {
     return (
         <div className="title__inputs">
             <input
