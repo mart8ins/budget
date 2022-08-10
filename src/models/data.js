@@ -14,6 +14,7 @@ export const allUsers = [
                     title: "June",
                     monthlyIncome: "",
                     remainingMoney: "",
+                    template: false,
                     expanses: [
                         {
                             id: "1",

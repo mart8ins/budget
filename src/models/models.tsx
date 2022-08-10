@@ -5,6 +5,7 @@ export type NewBudget = {
     title: string;
     monthlyIncome: string;
     expanses: Expanses[];
+    template: boolean | null;
 };
 
 // ACTIVE BUDGET
@@ -74,16 +75,8 @@ export interface NavigationInterface {
     seeLandingPage: () => void;
 }
 
-// CREATE TEMPLATE CONTEXT
-export interface CreateTemplateContextInterface {
-    template: NewBudget;
-    addTemplateData: (template: NewBudget) => void;
-    addExpanses: (expanses: Expanses[]) => void;
-    deletePaymentExpanse: (expanseId: string) => void;
-    saveTemplate: () => void;
-}
 // CREATE BUDGET CONTEXT
-export interface CreateBudgetContextInterface {
+export interface CreateContextInterface {
     budget: NewBudget;
     addBudgetData: (template: NewBudget) => void;
     addExpansesB: (expanses: Expanses[]) => void;

@@ -1,20 +1,16 @@
 import { createContext, useContext, useState } from "react";
-import { NewBudget, Expanses, CreateBudgetContextInterface } from "../models/models";
+import { NewBudget, Expanses, CreateContextInterface } from "../models/models";
 import { AuthContext } from "./authContext";
 import { v4 as uuidv4 } from "uuid";
 import { NavigationContext } from "./navigationContext";
 import { DataContext } from "./dataContext";
 
-export const CreateBudgetContext = createContext({} as CreateBudgetContextInterface);
+export const CreateContext = createContext({} as CreateContextInterface);
 
-const CreateBudgetContextprovider = ({ children }: any) => {
+const CreateContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
-    const { addNewBudget } = useContext(DataContext);
+    const { addNewBudget, addNewTemplate } = useContext(DataContext);
     const { seeLandingPage } = useContext(NavigationContext);
-
-    const addBudgetData = (budget: NewBudget) => {
-        setBudget(budget);
-    };
 
     // NEW TEMPLATE
     const [budget, setBudget] = useState<NewBudget>({
@@ -23,7 +19,12 @@ const CreateBudgetContextprovider = ({ children }: any) => {
         title: "",
         monthlyIncome: "",
         expanses: [],
+        template: null,
     });
+
+    const addBudgetData = (budget: NewBudget) => {
+        setBudget(budget);
+    };
 
     // ADD NEW PAYMENT BLOCK FOR TEMPLATE
     const addExpansesB = (expanses: Expanses[]) => {
@@ -42,22 +43,24 @@ const CreateBudgetContextprovider = ({ children }: any) => {
     };
 
     const saveBudget = () => {
-        addNewBudget(budget);
+        console.log(budget);
+        budget.template ? addNewTemplate(budget) : addNewBudget(budget);
         setBudget({
             id: uuidv4(),
             userId: user.id,
             title: "",
             monthlyIncome: "",
             expanses: [],
+            template: null,
         });
         seeLandingPage();
     };
 
     return (
-        <CreateBudgetContext.Provider value={{ budget, addBudgetData, addExpansesB, deletePaymentExpanseB, saveBudget }}>
+        <CreateContext.Provider value={{ budget, addBudgetData, addExpansesB, deletePaymentExpanseB, saveBudget }}>
             {children}
-        </CreateBudgetContext.Provider>
+        </CreateContext.Provider>
     );
 };
 
-export default CreateBudgetContextprovider;
+export default CreateContextprovider;
