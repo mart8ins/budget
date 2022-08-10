@@ -1,4 +1,4 @@
-.save__template__btn {
+.save__create__btn {
   display: inline-block;
   margin: 10px auto;
   border: none;
@@ -14,7 +14,7 @@
   transition: 0.2s;
 }
 
-.save__template__btn:hover {
+.save__create__btn:hover {
   cursor: pointer;
   background-color: #32cd32;
   -webkit-box-shadow: 0px 7px 7px #32cd32;

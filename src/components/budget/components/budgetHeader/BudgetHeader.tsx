@@ -4,7 +4,7 @@ import "./budgetHeader.css";
 
 function BudgetHeader() {
     const {
-        budget: { month, monthlyIncome },
+        budget: { title, monthlyIncome },
         updateIncome,
     } = useContext(ActiveBudgetContext);
     const [edit, setEdit] = useState(false);
@@ -17,7 +17,7 @@ function BudgetHeader() {
 
     return (
         <div className="budget__header">
-            <div className="month">{month}</div>
+            <div className="month">{title}</div>
             <div>
                 <div className="monthly__income__heading">{!monthlyIncome ? "Add monthly income" : "Income for month"}</div>
                 <div className="monthly__income__input__container">

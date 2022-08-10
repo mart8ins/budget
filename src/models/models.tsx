@@ -1,11 +1,20 @@
-// BUDGET
-export type Budget = {
+// new BUDGET and new TEMPLATE
+export type NewBudget = {
     id: string;
     userId: string;
-    month: string;
+    title: string;
     monthlyIncome: string;
-    remainingMoney: string;
     expanses: Expanses[];
+};
+
+// ACTIVE BUDGET
+export type ActiveBudget = {
+    id: string;
+    userId: string;
+    title: string;
+    monthlyIncome: string;
+    expanses: Expanses[];
+    remainingMoney: string;
     totals: Totals;
 };
 
@@ -30,7 +39,7 @@ export type PaymentRow = {
 
 // ACTIVE BUDGET CONTEXT
 export interface ActiveBudgetContextInterface {
-    budget: Budget;
+    budget: ActiveBudget;
     updateIncome: (income: string) => void;
     updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
 }
@@ -43,8 +52,8 @@ export type User = {
     status: boolean;
     error: { status: boolean; message: string };
     data: {
-        templates: BudgetTemplate[];
-        budgets: Budget[];
+        templates: NewBudget[];
+        budgets: NewBudget[];
         activeBudgetId: string | null;
     };
 };
@@ -67,18 +76,17 @@ export interface NavigationInterface {
 
 // CREATE TEMPLATE CONTEXT
 export interface CreateTemplateContextInterface {
-    template: BudgetTemplate;
-    addTemplateData: (template: BudgetTemplate) => void;
-    addBlocks: (blocks: Expanses[]) => void;
-    deletePaymentBlock: (blockId: string) => void;
+    template: NewBudget;
+    addTemplateData: (template: NewBudget) => void;
+    addExpanses: (expanses: Expanses[]) => void;
+    deletePaymentExpanse: (expanseId: string) => void;
     saveTemplate: () => void;
 }
-
-// BUDGET TEMPLATE
-export type BudgetTemplate = {
-    id: string;
-    userId: string;
-    title: string;
-    monthlyIncome: string;
-    blocks: Expanses[];
-};
+// CREATE BUDGET CONTEXT
+export interface CreateBudgetContextInterface {
+    budget: NewBudget;
+    addBudgetData: (template: NewBudget) => void;
+    addExpansesB: (expanses: Expanses[]) => void;
+    deletePaymentExpanseB: (expanseId: string) => void;
+    saveBudget: () => void;
+}

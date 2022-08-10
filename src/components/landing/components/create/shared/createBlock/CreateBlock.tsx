@@ -1,16 +1,27 @@
 import React, { useState, useContext } from "react";
 import "./createBlock.css";
 import { v4 as uuidv4 } from "uuid";
-import { PaymentRow } from "../../../../../../models/models";
+import { PaymentRow, Expanses } from "../../../../../../models/models";
 import { CreateTemplateContext } from "../../../../../createTemplateContext";
 import PaymentRowPreview from "./paymentRowPreview/PaymentRowPreview";
 import NewPaymentForBlock from "./newPaymentForBlock/NewPaymentForBlock";
+import { CreateBudgetContext } from "../../../../../createBudgetContext";
 
-function CreateBlock() {
-    const {
-        template: { title, monthlyIncome, blocks },
-        addBlocks,
-    } = useContext(CreateTemplateContext);
+type Props = {
+    blockFor: string;
+};
+
+function CreateBlock({ blockFor }: Props) {
+    const { template, addExpanses } = useContext(CreateTemplateContext);
+    const { budget, addExpansesB } = useContext(CreateBudgetContext);
+
+    const expanses = blockFor === "template" ? template.expanses : budget.expanses;
+    const title = blockFor === "template" ? template.title : budget.title;
+    const monthlyIncome = blockFor === "template" ? template.monthlyIncome : budget.monthlyIncome;
+
+    const addExp = (expanses: Expanses[]) => {
+        blockFor === "template" ? addExpanses(expanses) : addExpansesB(expanses);
+    };
 
     const [paymentBlockTitle, setPaymentBlockTitle] = useState("");
     const handlePaymentBlockTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +39,7 @@ function CreateBlock() {
 
     const addPaymentBlock = () => {
         // add block
-        addBlocks([...blocks, { id: uuidv4(), title: paymentBlockTitle, subjects: allPaymentRows }]);
+        addExp([...expanses, { id: uuidv4(), title: paymentBlockTitle, subjects: allPaymentRows }]);
         // clear block title and rows
         setPaymentBlockTitle("");
         setAllPaymentRows([]);

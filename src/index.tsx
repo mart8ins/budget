@@ -7,6 +7,7 @@ import AuthContextProvider from "./components/authContext";
 import NavigationContextProvider from "./components/navigationContext";
 import CreateTemplateContextprovider from "./components/createTemplateContext";
 import DataContextProvider from "./components/dataContext";
+import CreateBudgetContextprovider from "./components/createBudgetContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -14,11 +15,13 @@ root.render(
         <AuthContextProvider>
             <NavigationContextProvider>
                 <DataContextProvider>
-                    <CreateTemplateContextprovider>
-                        <ActiveBudgetContextprovider>
-                            <App />
-                        </ActiveBudgetContextprovider>
-                    </CreateTemplateContextprovider>
+                    <CreateBudgetContextprovider>
+                        <CreateTemplateContextprovider>
+                            <ActiveBudgetContextprovider>
+                                <App />
+                            </ActiveBudgetContextprovider>
+                        </CreateTemplateContextprovider>
+                    </CreateBudgetContextprovider>
                 </DataContextProvider>
             </NavigationContextProvider>
         </AuthContextProvider>

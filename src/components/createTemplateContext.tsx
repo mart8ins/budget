@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { BudgetTemplate, Expanses, CreateTemplateContextInterface } from "../models/models";
+import { NewBudget, Expanses, CreateTemplateContextInterface } from "../models/models";
 import { AuthContext } from "./authContext";
 import { v4 as uuidv4 } from "uuid";
 import { NavigationContext } from "./navigationContext";
@@ -12,50 +12,49 @@ const CreateTemplateContextprovider = ({ children }: any) => {
     const { addNewTemplate } = useContext(DataContext);
     const { seeLandingPage } = useContext(NavigationContext);
 
-    const addTemplateData = (template: BudgetTemplate) => {
+    const addTemplateData = (template: NewBudget) => {
         setTemplate(template);
     };
 
-    // NEW TEMPLATE
-    const [template, setTemplate] = useState<BudgetTemplate>({
+    // NEW BUDGET
+    const [template, setTemplate] = useState<NewBudget>({
         id: uuidv4(),
         userId: user.id,
         title: "",
         monthlyIncome: "",
-        blocks: [],
+        expanses: [],
     });
 
     // ADD NEW PAYMENT BLOCK FOR TEMPLATE
-    const addBlocks = (blocks: Expanses[]) => {
+    const addExpanses = (expanses: Expanses[]) => {
         setTemplate({
             ...template,
-            blocks: blocks,
+            expanses: expanses,
         });
     };
 
     // DELETE PAYMENT BLOCK FROM TEMPLATE
-    const deletePaymentBlock = (blockId: string) => {
-        const filtered = template.blocks.filter((block) => {
-            return block.id !== blockId;
+    const deletePaymentExpanse = (expanseId: string) => {
+        const filtered = template.expanses.filter((expanse) => {
+            return expanse.id !== expanseId;
         });
-        addBlocks(filtered);
+        addExpanses(filtered);
     };
 
     const saveTemplate = () => {
-        console.log(template);
         addNewTemplate(template);
         setTemplate({
             id: uuidv4(),
             userId: user.id,
             title: "",
             monthlyIncome: "",
-            blocks: [],
+            expanses: [],
         });
         seeLandingPage();
     };
 
     return (
-        <CreateTemplateContext.Provider value={{ template, addTemplateData, addBlocks, deletePaymentBlock, saveTemplate }}>
+        <CreateTemplateContext.Provider value={{ template, addTemplateData, addExpanses, deletePaymentExpanse, saveTemplate }}>
             {children}
         </CreateTemplateContext.Provider>
     );

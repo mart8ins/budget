@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-import { ActiveBudgetContextInterface, Budget } from "../models/models";
+import { ActiveBudgetContextInterface, ActiveBudget } from "../models/models";
 
 export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterface);
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
-    const [budget, setBudget] = useState<Budget>({
+    const [budget, setBudget] = useState<ActiveBudget>({
         id: "133",
         userId: "399",
-        month: "June",
+        title: "June",
         monthlyIncome: "",
         remainingMoney: "",
         expanses: [
