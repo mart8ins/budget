@@ -25,7 +25,19 @@ const DataContextProvider = ({ children }: any) => {
 
     const [allBudgets, setAllBudgets] = useState<NewBudget[]>(budgets);
     const addNewBudget = (budget: NewBudget) => {
-        setAllBudgets([budget, ...allBudgets]);
+        // udate budget with new data if it exists or add new budget to list
+        const budgetExists = allBudgets.filter((b) => {
+            return b.id === budget.id;
+        });
+        if (budgetExists.length) {
+            const ref = allBudgets;
+            const updated = ref.filter((b) => {
+                return b.id !== budget.id;
+            });
+            setAllBudgets([budget, ...updated]);
+        } else {
+            setAllBudgets([budget, ...allBudgets]);
+        }
     };
 
     return <DataContext.Provider value={{ allTemplates, addNewTemplate, allBudgets, addNewBudget }}>{children}</DataContext.Provider>;

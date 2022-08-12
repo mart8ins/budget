@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { ActiveBudgetContextInterface, ActiveBudget } from "../models/models";
 import { AuthContext } from "./authContext";
+import { DataContext } from "./dataContext";
 
 export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterface);
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
+    const { allBudgets, addNewBudget } = useContext(DataContext);
 
     const [budget, setBudget] = useState<ActiveBudget>({
         id: "",
@@ -75,22 +77,27 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         calculateTotals();
     }, [budget.expanses, budget.monthlyIncome]);
 
+    // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
         const activeBudget = user.data.budgets.filter((budget) => {
             return budget.id === user.data.activeBudgetId;
         });
-        console.log(budget, "LOL");
         setBudget({
             ...budget,
             ...activeBudget[0],
             totals: { payment: "", payed: "", remaining: "" },
             remainingMoney: "",
         });
-
-        console.log(budget, "LOL2");
     }, [user, user.data.activeBudgetId]);
 
-    // console.log(budget, ">???????");
+    // UPDATE USERS BUDGET IN DB
+    useEffect(() => {
+        if (budget.id) {
+            const { id, userId, title, monthlyIncome, expanses } = budget;
+            const budgetForUpdate = { id, userId, title, monthlyIncome, expanses, template: false };
+            addNewBudget(budgetForUpdate);
+        }
+    }, [budget]);
 
     return <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</ActiveBudgetContext.Provider>;
 };
