@@ -73,8 +73,8 @@ function CreateBudget() {
 
             {useTemplate && (
                 <div className="select__template__container">
-                    <select onChange={templateSelectHandler}>
-                        <option disabled selected>
+                    <select onChange={templateSelectHandler} defaultValue={"Choose template"}>
+                        <option disabled selected value="Choose template">
                             Choose template
                         </option>
                         {allTemplates.map((temp) => {

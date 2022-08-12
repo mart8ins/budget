@@ -67,8 +67,58 @@ const AuthContextProvider = ({ children }: any) => {
                     ],
                 },
             ],
-            budgets: [],
-            activeBudgetId: null,
+            budgets: [
+                {
+                    id: "133",
+                    userId: "399",
+                    title: "June",
+                    monthlyIncome: "1145",
+                    template: false,
+                    expanses: [
+                        {
+                            id: "1",
+                            title: "Aigai",
+                            subjects: [
+                                {
+                                    id: "3",
+                                    payed: "",
+                                    payment: "233",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "6",
+                                    payed: "",
+                                    payment: "122",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                        {
+                            id: "344",
+                            title: "Ogresgals",
+                            subjects: [
+                                {
+                                    id: "31",
+                                    payed: "",
+                                    payment: "45",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "46",
+                                    payed: "",
+                                    payment: "66",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            activeBudgetId: "133",
         },
     });
 

@@ -1,57 +1,19 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { ActiveBudgetContextInterface, ActiveBudget } from "../models/models";
+import { AuthContext } from "./authContext";
 
 export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterface);
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
+    const { user } = useContext(AuthContext);
+
     const [budget, setBudget] = useState<ActiveBudget>({
-        id: "133",
-        userId: "399",
-        title: "June",
+        id: "",
+        userId: "",
+        title: "",
         monthlyIncome: "",
         remainingMoney: "",
-        expanses: [
-            {
-                id: "1",
-                title: "Aigai",
-                subjects: [
-                    {
-                        id: "3",
-                        payed: "",
-                        payment: "",
-                        remaining: "",
-                        title: "Pārtika",
-                    },
-                    {
-                        id: "6",
-                        payed: "",
-                        payment: "",
-                        remaining: "",
-                        title: "Apkure",
-                    },
-                ],
-            },
-            {
-                id: "344",
-                title: "Ogresgals",
-                subjects: [
-                    {
-                        id: "31",
-                        payed: "",
-                        payment: "",
-                        remaining: "",
-                        title: "Pārtika",
-                    },
-                    {
-                        id: "46",
-                        payed: "",
-                        payment: "",
-                        remaining: "",
-                        title: "Apkure",
-                    },
-                ],
-            },
-        ],
+        expanses: [],
         totals: { payment: "", payed: "", remaining: "" },
     });
 
@@ -112,6 +74,23 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
     useEffect(() => {
         calculateTotals();
     }, [budget.expanses, budget.monthlyIncome]);
+
+    useEffect(() => {
+        const activeBudget = user.data.budgets.filter((budget) => {
+            return budget.id === user.data.activeBudgetId;
+        });
+        console.log(budget, "LOL");
+        setBudget({
+            ...budget,
+            ...activeBudget[0],
+            totals: { payment: "", payed: "", remaining: "" },
+            remainingMoney: "",
+        });
+
+        console.log(budget, "LOL2");
+    }, [user, user.data.activeBudgetId]);
+
+    // console.log(budget, ">???????");
 
     return <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</ActiveBudgetContext.Provider>;
 };

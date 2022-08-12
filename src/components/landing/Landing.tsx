@@ -11,17 +11,21 @@ import Budget from "../budget/Budget";
 type Props = {};
 
 function Landing({}: Props) {
-    const { navigateTo } = useContext(NavigationContext);
-    const {
-        user: { data },
-    } = useContext(AuthContext);
+    const { navigateTo, seeBudgets } = useContext(NavigationContext);
+    const { user } = useContext(AuthContext);
     return (
         <div className="landing__container">
             {navigateTo === "createTemplate" && <CreateBudget />}
             {navigateTo === "createBudget" && <CreateBudget />}
             {navigateTo === "seeTemplates" && <SeeTemplates />}
             {navigateTo === "seeBudgets" && <SeeBudgets />}
-            {navigateTo === "" && <Budget />}
+            {navigateTo === "" && user.data.activeBudgetId && <Budget />}
+
+            {navigateTo === "" && !user.data.activeBudgetId && (
+                <div className="select__active__budget">
+                    <h4 onClick={seeBudgets}>Select active budget</h4>
+                </div>
+            )}
         </div>
     );
 }
