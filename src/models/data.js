@@ -10,7 +10,6 @@ export const allUsers = [
                 {
                     id: "133",
                     userId: "399",
-                    // month: "June",
                     title: "June",
                     monthlyIncome: "",
                     remainingMoney: "",

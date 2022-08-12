@@ -43,7 +43,6 @@ const CreateContextprovider = ({ children }: any) => {
     };
 
     const saveBudget = () => {
-        console.log(budget);
         budget.template ? addNewTemplate(budget) : addNewBudget(budget);
         setBudget({
             id: uuidv4(),

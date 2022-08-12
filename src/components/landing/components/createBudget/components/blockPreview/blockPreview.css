@@ -1,10 +1,10 @@
 .blocks__preview__container {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .blocks__preview__container .block__preview {
-  padding: 5px;
-  margin: 5px;
+  margin-top: 5px;
+  padding: 10px;
   -webkit-box-shadow: 0 0 3px #a4ace7;
           box-shadow: 0 0 3px #a4ace7;
 }
@@ -25,11 +25,9 @@
   color: #d03021;
 }
 
-.blocks__preview__container .block__preview p {
-  margin: 0;
+.blocks__preview__container .block__preview div {
   font-weight: bold;
-  color: grey;
-  padding: 0 80px;
+  color: #191970;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,4 +37,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.blocks__preview__container .block__preview div span {
+  margin: 15px;
+  width: 50%;
+  text-align: right;
 }

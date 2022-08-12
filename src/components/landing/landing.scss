@@ -1,6 +1,7 @@
 @import "../../styles/styles";
 
 .landing__container {
-    height: 90vh;
-    @include flexCenter();
+    min-height: 85vh;
+    margin: 0 auto;
+    width: 90%;
 }

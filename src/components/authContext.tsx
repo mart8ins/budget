@@ -16,7 +16,57 @@ const AuthContextProvider = ({ children }: any) => {
             message: "",
         },
         data: {
-            templates: [],
+            templates: [
+                {
+                    id: "133",
+                    userId: "1",
+                    title: "Mēnesis",
+                    monthlyIncome: "1154",
+                    template: true,
+                    expanses: [
+                        {
+                            id: "1",
+                            title: "Aigai",
+                            subjects: [
+                                {
+                                    id: "3",
+                                    payed: "",
+                                    payment: "200",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "6",
+                                    payed: "",
+                                    payment: "35",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                        {
+                            id: "344",
+                            title: "Ogresgals",
+                            subjects: [
+                                {
+                                    id: "31",
+                                    payed: "",
+                                    payment: "46",
+                                    remaining: "",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "46",
+                                    payed: "",
+                                    payment: "88",
+                                    remaining: "",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
             budgets: [],
             activeBudgetId: null,
         },

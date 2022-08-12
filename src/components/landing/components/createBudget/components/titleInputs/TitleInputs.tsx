@@ -29,6 +29,7 @@ function TitleInputs() {
                 name="monthlyIncome"
                 id="monthlyIncome"
                 placeholder="Monthly income"
+                value={budget.monthlyIncome}
             />
         </div>
     );

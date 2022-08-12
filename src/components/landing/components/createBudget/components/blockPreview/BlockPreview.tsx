@@ -16,9 +16,9 @@ const BlockPreview = () => {
 
                         {expanse.subjects.map((payment) => {
                             return (
-                                <p key={payment.id}>
+                                <div key={payment.id}>
                                     {payment.title} <span>{payment.payment}</span>
-                                </p>
+                                </div>
                             );
                         })}
                     </div>

@@ -1,10 +1,10 @@
 .save__create__btn {
   display: inline-block;
-  margin: 10px auto;
+  margin: 5px auto;
   border: none;
   border-radius: 5px;
   padding: 5px;
-  width: 120px;
+  width: 100px;
   background-color: #5bd75b;
   color: #f0f8ff;
   font-weight: bold;
@@ -12,6 +12,7 @@
           box-shadow: 0px 4px 4px #32cd32;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  font-size: 0.8rem;
 }
 
 .save__create__btn:hover {

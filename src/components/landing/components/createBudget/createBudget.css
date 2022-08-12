@@ -1,1 +1,61 @@
-/* No CSS */
+.create__container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.create__container .choose__option__container {
+  width: 80%;
+  margin: 0 auto;
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.create__container .choose__option__container button {
+  display: block;
+  margin: 8px auto;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 60px;
+  background-color: #282b4b;
+  color: #f0f8ff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 4px 4px #16182a;
+          box-shadow: 0px 4px 4px #16182a;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.create__container .choose__option__container button:hover {
+  cursor: pointer;
+  background-color: #16182a;
+  -webkit-box-shadow: 0px 7px 7px #16182a;
+          box-shadow: 0px 7px 7px #16182a;
+}
+
+.create__container .select__template__container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create__container .select__template__container select {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 0 2px 2px black;
+          box-shadow: 0 2px 2px black;
+  border-radius: 4px;
+  padding: 5px;
+}

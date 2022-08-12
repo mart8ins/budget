@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { AuthContext } from "../../../authContext";
 import { CreateContext } from "../../../createContext";
 import { DataContext } from "../../../dataContext";
 import { NavigationContext } from "../../../navigationContext";
@@ -6,6 +8,7 @@ import "./navigationHeader.css";
 type Props = {};
 
 function NavigationHeader({}: Props) {
+    const { user } = useContext(AuthContext);
     const { allTemplates, allBudgets } = useContext(DataContext);
     const { budget, addBudgetData } = useContext(CreateContext);
     const { navigateTo, createTemplate, seeTemplates, createBudget, seeBudgets } = useContext(NavigationContext);
@@ -18,7 +21,11 @@ function NavigationHeader({}: Props) {
                     onClick={() => {
                         createTemplate();
                         addBudgetData({
-                            ...budget,
+                            id: uuidv4(),
+                            userId: user.id,
+                            title: "",
+                            monthlyIncome: "",
+                            expanses: [],
                             template: true,
                         });
                     }}>

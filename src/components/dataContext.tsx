@@ -28,6 +28,9 @@ const DataContextProvider = ({ children }: any) => {
         setAllBudgets([budget, ...allBudgets]);
     };
 
+    console.log(allBudgets, "budgets data contextā");
+    console.log(allTemplates, "allTemplates data contextā");
+
     return <DataContext.Provider value={{ allTemplates, addNewTemplate, allBudgets, addNewBudget }}>{children}</DataContext.Provider>;
 };
 

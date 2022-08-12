@@ -1,15 +1,15 @@
 @import "../../../../../../../styles/styles";
 
 .payment__row__preview__container {
-    width: 60%;
-    margin-top: 15px;
-    padding: 8px;
+    width: 85%;
+    padding: 7px;
+    margin-top: 5px;
     background-color: $primary-color;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: darken($header-color, 15%);
 
     .payment__item {
-        width: 70%;
+        width: 75%;
         text-align: center;
         color: white;
     }
@@ -17,6 +17,6 @@
     @include flexRowSpaceBetween();
 
     .delete__row__btn {
-        @include addSaveButtons(60px, 0, 0, inline, $error-color);
+        @include addSaveButtons(45px, 0.6rem, 0, 0, inline, $error-color);
     }
 }

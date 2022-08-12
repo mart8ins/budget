@@ -1,0 +1,28 @@
+@import "../../../../styles/styles";
+
+.create__container {
+    margin-top: 20px;
+    width: 100%;
+
+    .choose__option__container {
+        width: 80%;
+        margin: 0 auto;
+        height: 60vh;
+        @include flexCenterColumn();
+        button {
+            @include addSaveButtons(60px, 1rem, 8px, auto, block, $header-background);
+        }
+    }
+
+    .select__template__container {
+        text-align: center;
+        margin-bottom: 20px;
+        select {
+            border: none;
+            outline: none;
+            box-shadow: 0 2px 2px black;
+            border-radius: 4px;
+            padding: 5px;
+        }
+    }
+}

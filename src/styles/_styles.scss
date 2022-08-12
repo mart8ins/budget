@@ -52,7 +52,7 @@ $error-color: #d03021;
     }
 }
 
-@mixin addSaveButtons($width, $marginY, $marginX, $block, $background) {
+@mixin addSaveButtons($width, $fontSize, $marginY, $marginX, $block, $background) {
     display: $block;
     margin: $marginY $marginX;
     border: none;
@@ -64,6 +64,7 @@ $error-color: #d03021;
     font-weight: bold;
     box-shadow: 0px 4px 4px $background;
     transition: 0.2s;
+    font-size: $fontSize;
     &:hover {
         cursor: pointer;
         background-color: $background;
