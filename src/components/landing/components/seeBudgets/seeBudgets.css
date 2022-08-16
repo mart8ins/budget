@@ -1,1 +1,18 @@
-/* No CSS */
+.see__budgets__container {
+  margin-top: 15px;
+}
+
+.see__budgets__container .tab__nav .tab__nav__btn {
+  width: 50%;
+  border: none;
+  padding: 8px;
+  background-color: #16182a;
+  color: #87ceeb;
+  font-size: 0.8rem;
+}
+
+.see__budgets__container .tab__nav .active__budget__tab {
+  font-weight: bold;
+  color: #f0f8ff;
+  background-color: #30355c;
+}

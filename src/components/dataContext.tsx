@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { NewBudget } from "../models/models";
 import { AuthContext } from "./authContext";
 
@@ -6,7 +6,7 @@ interface DataContextInterface {
     allTemplates: NewBudget[];
     addNewTemplate: (template: NewBudget) => void;
     allBudgets: NewBudget[];
-    addNewBudget: (budget: NewBudget) => void;
+    saveBudget: (budget: NewBudget) => void;
 }
 
 export const DataContext = createContext({} as DataContextInterface);
@@ -24,7 +24,7 @@ const DataContextProvider = ({ children }: any) => {
     };
 
     const [allBudgets, setAllBudgets] = useState<NewBudget[]>(budgets);
-    const addNewBudget = (budget: NewBudget) => {
+    const saveBudget = (budget: NewBudget) => {
         // udate budget with new data if it exists or add new budget to list
         const budgetExists = allBudgets.filter((b) => {
             return b.id === budget.id;
@@ -40,7 +40,7 @@ const DataContextProvider = ({ children }: any) => {
         }
     };
 
-    return <DataContext.Provider value={{ allTemplates, addNewTemplate, allBudgets, addNewBudget }}>{children}</DataContext.Provider>;
+    return <DataContext.Provider value={{ allTemplates, addNewTemplate, allBudgets, saveBudget }}>{children}</DataContext.Provider>;
 };
 
 export default DataContextProvider;

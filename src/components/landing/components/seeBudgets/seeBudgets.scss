@@ -1,0 +1,20 @@
+@import "../../../../styles/styles";
+
+.see__budgets__container {
+    margin-top: 15px;
+    .tab__nav {
+        .tab__nav__btn {
+            width: 50%;
+            border: none;
+            padding: 8px;
+            background-color: $header-background;
+            color: $secondary-color;
+            font-size: 0.8rem;
+        }
+        .active__budget__tab {
+            font-weight: bold;
+            color: $primary-color;
+            background-color: lighten($header-background, 15%);
+        }
+    }
+}

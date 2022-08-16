@@ -1,5 +1,5 @@
 @import "../../../../../../styles/styles";
 
 .save__create__btn {
-    @include addSaveButtons(100px, 0.8rem, 5px, auto, inline-block, $green-color);
+    @include customBtn(100px, 0.8rem, 5px, auto, inline-block, $green-color);
 }

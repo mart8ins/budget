@@ -6,6 +6,7 @@ export type NewBudget = {
     monthlyIncome: string;
     expanses: Expanses[];
     template: boolean | null;
+    isActive: boolean;
 };
 
 // ACTIVE BUDGET
@@ -43,6 +44,7 @@ export interface ActiveBudgetContextInterface {
     budget: ActiveBudget;
     updateIncome: (income: string) => void;
     updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
+    addActiveBudget: () => void;
 }
 
 // USER
@@ -69,7 +71,6 @@ export interface AuthContextInterface {
 export interface NavigationInterface {
     navigateTo: string;
     createTemplate: () => void;
-    seeTemplates: () => void;
     createBudget: () => void;
     seeBudgets: () => void;
     seeLandingPage: () => void;
@@ -81,5 +82,5 @@ export interface CreateContextInterface {
     addBudgetData: (template: NewBudget) => void;
     addExpansesB: (expanses: Expanses[]) => void;
     deletePaymentExpanseB: (expanseId: string) => void;
-    saveBudget: () => void;
+    addBudget: () => void;
 }

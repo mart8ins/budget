@@ -8,6 +8,6 @@
     }
 
     .save__block__btn {
-        @include addSaveButtons(auto, 0.9rem, 15px, 5px, block, $header-background);
+        @include customBtn(auto, 0.9rem, 15px, 5px, block, $header-background);
     }
 }

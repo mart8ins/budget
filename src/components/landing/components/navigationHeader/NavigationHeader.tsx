@@ -11,7 +11,7 @@ function NavigationHeader({}: Props) {
     const { user } = useContext(AuthContext);
     const { allTemplates, allBudgets } = useContext(DataContext);
     const { budget, addBudgetData } = useContext(CreateContext);
-    const { navigateTo, createTemplate, seeTemplates, createBudget, seeBudgets } = useContext(NavigationContext);
+    const { navigateTo, createTemplate, createBudget, seeBudgets } = useContext(NavigationContext);
 
     return (
         <div className="create__options__header">
@@ -27,15 +27,11 @@ function NavigationHeader({}: Props) {
                             monthlyIncome: "",
                             expanses: [],
                             template: true,
+                            isActive: false,
                         });
                     }}>
                     Create template
                 </div>
-                {allTemplates.length > 0 && (
-                    <div className={`see__data ${navigateTo === "seeTemplates" ? " activeUI" : null}`} onClick={seeTemplates}>
-                        {allTemplates.length}
-                    </div>
-                )}
             </div>
             <div className="create__option">
                 <div
@@ -51,7 +47,8 @@ function NavigationHeader({}: Props) {
                 </div>
                 {allBudgets.length > 0 && (
                     <div className={`see__data ${navigateTo === "seeBudgets" ? " activeUI" : null}`} onClick={seeBudgets}>
-                        {allBudgets.length}
+                        <p>B{allBudgets.length}</p>
+                        <p>T{allTemplates.length}</p>
                     </div>
                 )}
             </div>

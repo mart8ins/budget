@@ -1,0 +1,109 @@
+.item__container {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #f0f8ff;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 2px 2px 2px #f0f8ff;
+          box-shadow: 1px 2px 2px 2px #f0f8ff;
+}
+
+.item__container .item__container__top {
+  width: 100%;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.item__container .item__container__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item__container .item__container__bottom .budget__is__active {
+  width: 50%;
+  text-align: center;
+}
+
+.item__container .item__container__bottom .budget__is__active span {
+  background-color: #32cd32;
+  border-radius: 5px;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+  color: #f0f8ff;
+  font-weight: bold;
+}
+
+.item__container .item__container__bottom .item__container__bottom__option {
+  width: 33%;
+  text-align: center;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item__container .item__container__bottom .item__container__bottom__option .bottom__option__btn {
+  display: inline-block;
+  margin: 0 0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: auto;
+  background-color: #282b4b;
+  color: #f0f8ff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 4px 4px #16182a;
+          box-shadow: 0px 4px 4px #16182a;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 0.7rem;
+}
+
+.item__container .item__container__bottom .item__container__bottom__option .bottom__option__btn:hover {
+  cursor: pointer;
+  background-color: #16182a;
+  -webkit-box-shadow: 0px 7px 7px #16182a;
+          box-shadow: 0px 7px 7px #16182a;
+}
+
+.item__container .item__container__bottom .item__container__bottom__option .delete {
+  display: inline-block;
+  margin: 0 0;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: auto;
+  background-color: #e15043;
+  color: #f0f8ff;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 4px 4px #d03021;
+          box-shadow: 0px 4px 4px #d03021;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 0.7rem;
+}
+
+.item__container .item__container__bottom .item__container__bottom__option .delete:hover {
+  cursor: pointer;
+  background-color: #d03021;
+  -webkit-box-shadow: 0px 7px 7px #d03021;
+          box-shadow: 0px 7px 7px #d03021;
+}

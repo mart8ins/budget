@@ -3,9 +3,9 @@ import { CreateContext } from "../../../../../createContext";
 import "./saveBudgetTemplateBtn.css";
 
 function SaveBudgetTemplateBtn() {
-    const { saveBudget, budget } = useContext(CreateContext);
+    const { addBudget, budget } = useContext(CreateContext);
     return (
-        <button className="save__create__btn" onClick={saveBudget}>
+        <button className="save__create__btn" onClick={addBudget}>
             {budget.template ? "Save template" : "Save budget"}
         </button>
     );

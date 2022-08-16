@@ -2,12 +2,14 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { ActiveBudgetContextInterface, ActiveBudget } from "../models/models";
 import { AuthContext } from "./authContext";
 import { DataContext } from "./dataContext";
+import { NavigationContext } from "./navigationContext";
 
 export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterface);
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
-    const { allBudgets, addNewBudget } = useContext(DataContext);
+    const { allBudgets, saveBudget } = useContext(DataContext);
+    const { navigateTo } = useContext(NavigationContext);
 
     const [budget, setBudget] = useState<ActiveBudget>({
         id: "",
@@ -79,8 +81,14 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
 
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
-        const activeBudget = user.data.budgets.filter((budget) => {
-            return budget.id === user.data.activeBudgetId;
+        if (!budget.id) {
+            addActiveBudget();
+        }
+    }, [user, navigateTo]);
+
+    const addActiveBudget = () => {
+        const activeBudget = allBudgets.filter((budget) => {
+            if (budget.isActive) return budget;
         });
         setBudget({
             ...budget,
@@ -88,18 +96,22 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
             totals: { payment: "", payed: "", remaining: "" },
             remainingMoney: "",
         });
-    }, [user, user.data.activeBudgetId]);
+    };
 
     // UPDATE USERS BUDGET IN DB
     useEffect(() => {
         if (budget.id) {
             const { id, userId, title, monthlyIncome, expanses } = budget;
             const budgetForUpdate = { id, userId, title, monthlyIncome, expanses, template: false };
-            addNewBudget(budgetForUpdate);
+            saveBudget({ ...budgetForUpdate, isActive: true });
         }
     }, [budget]);
 
-    return <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount }}>{children}</ActiveBudgetContext.Provider>;
+    return (
+        <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount, addActiveBudget }}>
+            {children}
+        </ActiveBudgetContext.Provider>
+    );
 };
 
 export default ActiveBudgetContextprovider;

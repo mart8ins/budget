@@ -12,9 +12,6 @@ const NavigationContextProvider = ({ children }: any) => {
     const createBudget = () => {
         setNavigateTo("createBudget");
     };
-    const seeTemplates = () => {
-        setNavigateTo("seeTemplates");
-    };
     const seeBudgets = () => {
         setNavigateTo("seeBudgets");
     };
@@ -24,7 +21,7 @@ const NavigationContextProvider = ({ children }: any) => {
     };
 
     return (
-        <NavigationContext.Provider value={{ navigateTo, createTemplate, seeTemplates, createBudget, seeBudgets, seeLandingPage }}>
+        <NavigationContext.Provider value={{ navigateTo, createTemplate, createBudget, seeBudgets, seeLandingPage }}>
             {children}
         </NavigationContext.Provider>
     );

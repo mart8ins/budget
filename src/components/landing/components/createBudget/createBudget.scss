@@ -10,7 +10,7 @@
         height: 60vh;
         @include flexCenterColumn();
         button {
-            @include addSaveButtons(60px, 1rem, 8px, auto, block, $header-background);
+            @include customBtn(60px, 1rem, 8px, auto, block, $header-background);
         }
     }
 

@@ -17,6 +17,6 @@
     @include flexRowSpaceBetween();
 
     .delete__row__btn {
-        @include addSaveButtons(45px, 0.6rem, 0, 0, inline, $error-color);
+        @include customBtn(45px, 0.6rem, 0, 0, inline, $error-color);
     }
 }

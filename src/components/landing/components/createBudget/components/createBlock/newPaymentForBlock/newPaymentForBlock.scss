@@ -13,6 +13,6 @@
     }
 
     .add__payment__row__btn {
-        @include addSaveButtons(120px, 1rem, 30px, auto, block, $header-background);
+        @include customBtn(120px, 1rem, 30px, auto, block, $header-background);
     }
 }

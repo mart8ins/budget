@@ -52,7 +52,7 @@ $error-color: #d03021;
     }
 }
 
-@mixin addSaveButtons($width, $fontSize, $marginY, $marginX, $block, $background) {
+@mixin customBtn($width, $fontSize, $marginY, $marginX, $block, $background) {
     display: $block;
     margin: $marginY $marginX;
     border: none;

@@ -63,6 +63,7 @@ function CreateBudget() {
                                 monthlyIncome: "",
                                 expanses: [],
                                 template: null,
+                                isActive: false,
                             });
                             setHideChooseOption(true);
                         }}>
@@ -74,7 +75,7 @@ function CreateBudget() {
             {useTemplate && (
                 <div className="select__template__container">
                     <select onChange={templateSelectHandler} defaultValue={"Choose template"}>
-                        <option disabled selected value="Choose template">
+                        <option disabled value="Choose template">
                             Choose template
                         </option>
                         {allTemplates.map((temp) => {
