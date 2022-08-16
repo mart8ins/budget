@@ -57,7 +57,6 @@ export type User = {
     data: {
         templates: NewBudget[];
         budgets: NewBudget[];
-        activeBudgetId: string | null;
     };
 };
 // AUTH CONTEXT

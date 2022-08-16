@@ -1,11 +1,10 @@
 .landing__container {
-  min-height: 85vh;
+  min-height: 80vh;
   margin: 0 auto;
   width: 90%;
 }
 
 .landing__container .select__active__budget {
-  height: 65vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,4 +28,8 @@
 .landing__container .select__active__budget h4:hover {
   cursor: pointer;
   color: #45b3e0;
+}
+
+.landing__container .select__valid {
+  height: 65vh;
 }

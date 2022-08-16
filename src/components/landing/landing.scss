@@ -1,12 +1,11 @@
 @import "../../styles/styles";
 
 .landing__container {
-    min-height: 85vh;
+    min-height: 80vh;
     margin: 0 auto;
     width: 90%;
 
     .select__active__budget {
-        height: 65vh;
         @include flexCenterColumn();
         h4 {
             color: $secondary-color;
@@ -16,5 +15,8 @@
                 color: darken($secondary-color, 15%);
             }
         }
+    }
+    .select__valid {
+        height: 65vh;
     }
 }

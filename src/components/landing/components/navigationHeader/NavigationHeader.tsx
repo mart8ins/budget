@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../../authContext";
 import { CreateContext } from "../../../createContext";
@@ -12,6 +12,10 @@ function NavigationHeader({}: Props) {
     const { allTemplates, allBudgets } = useContext(DataContext);
     const { budget, addBudgetData } = useContext(CreateContext);
     const { navigateTo, createTemplate, createBudget, seeBudgets } = useContext(NavigationContext);
+
+    useEffect(() => {
+        console.log(allTemplates);
+    }, [allTemplates, allBudgets]);
 
     return (
         <div className="create__options__header">
@@ -45,7 +49,7 @@ function NavigationHeader({}: Props) {
                     }}>
                     Create budget
                 </div>
-                {allBudgets.length > 0 && (
+                {(allBudgets.length > 0 || allTemplates.length > 0) && (
                     <div className={`see__data ${navigateTo === "seeBudgets" ? " activeUI" : null}`} onClick={seeBudgets}>
                         <p>B{allBudgets.length}</p>
                         <p>T{allTemplates.length}</p>

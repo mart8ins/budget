@@ -45,6 +45,7 @@ const DataContextProvider = ({ children }: any) => {
         }
     };
 
+    console.log(allBudgets, allTemplates);
     return (
         <DataContext.Provider value={{ allTemplates, saveTemplateInDataContext, allBudgets, saveBudgetInDataContext }}>
             {children}

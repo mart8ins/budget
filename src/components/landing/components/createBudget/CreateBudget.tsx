@@ -41,6 +41,13 @@ function CreateBudget() {
         selectedTemplate && addBudgetData(selectedTemplate);
     }, [selectedTemplate]);
 
+    useEffect(() => {
+        if (allTemplates.length === 0) {
+            setUsetemplate(false);
+            setHideChooseOption(true);
+        }
+    }, [allTemplates]);
+
     return (
         <div className="create__container">
             {!hideChooseOption && !useTemplate && navigateTo === "createBudget" && (
