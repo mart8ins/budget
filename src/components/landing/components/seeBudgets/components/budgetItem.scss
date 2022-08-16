@@ -2,22 +2,23 @@
 
 .item__container {
     width: 90%;
-    margin: 20px auto;
-    background-color: $primary-color;
+    margin: 15px auto;
+    background-color: $secondary-color;
     border-radius: 5px;
     box-shadow: 1px 2px 2px 2px $primary-color;
     .item__container__top {
         width: 100%;
         text-align: center;
-        padding: 4px 0;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: bold;
+        color: $primary-color;
     }
 
     .item__container__bottom {
         @include flexCenter();
+        padding: 10px;
         .budget__is__active {
-            width: 50%;
+            width: 33%;
             text-align: center;
             span {
                 background-color: $green-color;
@@ -42,4 +43,7 @@
             }
         }
     }
+}
+.active__container {
+    background-color: $header-background;
 }

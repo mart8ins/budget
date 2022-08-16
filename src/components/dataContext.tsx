@@ -4,9 +4,9 @@ import { AuthContext } from "./authContext";
 
 interface DataContextInterface {
     allTemplates: NewBudget[];
-    addNewTemplate: (template: NewBudget) => void;
+    saveTemplateInDataContext: (template: NewBudget) => void;
     allBudgets: NewBudget[];
-    saveBudget: (budget: NewBudget) => void;
+    saveBudgetInDataContext: (budget: NewBudget) => void;
 }
 
 export const DataContext = createContext({} as DataContextInterface);
@@ -19,12 +19,13 @@ const DataContextProvider = ({ children }: any) => {
     } = useContext(AuthContext);
 
     const [allTemplates, setAllTemplates] = useState<NewBudget[]>(templates);
-    const addNewTemplate = (template: NewBudget) => {
+    const saveTemplateInDataContext = (template: NewBudget) => {
         setAllTemplates([template, ...allTemplates]);
     };
 
     const [allBudgets, setAllBudgets] = useState<NewBudget[]>(budgets);
-    const saveBudget = (budget: NewBudget) => {
+
+    const saveBudgetInDataContext = (budget: NewBudget) => {
         // udate budget with new data if it exists or add new budget to list
         const budgetExists = allBudgets.filter((b) => {
             return b.id === budget.id;
@@ -32,6 +33,10 @@ const DataContextProvider = ({ children }: any) => {
         if (budgetExists.length) {
             const ref = allBudgets;
             const updated = ref.filter((b) => {
+                // uncheck active budget if new budget is set to active
+                if (budget.isActive) {
+                    b.isActive = false;
+                }
                 return b.id !== budget.id;
             });
             setAllBudgets([budget, ...updated]);
@@ -40,7 +45,11 @@ const DataContextProvider = ({ children }: any) => {
         }
     };
 
-    return <DataContext.Provider value={{ allTemplates, addNewTemplate, allBudgets, saveBudget }}>{children}</DataContext.Provider>;
+    return (
+        <DataContext.Provider value={{ allTemplates, saveTemplateInDataContext, allBudgets, saveBudgetInDataContext }}>
+            {children}
+        </DataContext.Provider>
+    );
 };
 
 export default DataContextProvider;

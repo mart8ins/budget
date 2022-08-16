@@ -82,5 +82,5 @@ export interface CreateContextInterface {
     addBudgetData: (template: NewBudget) => void;
     addExpansesB: (expanses: Expanses[]) => void;
     deletePaymentExpanseB: (expanseId: string) => void;
-    addBudget: () => void;
+    saveTemplateOrBudget: () => void;
 }

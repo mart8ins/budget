@@ -8,7 +8,7 @@ export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterf
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
-    const { allBudgets, saveBudget } = useContext(DataContext);
+    const { allBudgets, saveBudgetInDataContext } = useContext(DataContext);
     const { navigateTo } = useContext(NavigationContext);
 
     const [budget, setBudget] = useState<ActiveBudget>({
@@ -81,9 +81,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
 
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
-        if (!budget.id) {
-            addActiveBudget();
-        }
+        addActiveBudget();
     }, [user, navigateTo]);
 
     const addActiveBudget = () => {
@@ -93,8 +91,6 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         setBudget({
             ...budget,
             ...activeBudget[0],
-            totals: { payment: "", payed: "", remaining: "" },
-            remainingMoney: "",
         });
     };
 
@@ -103,7 +99,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         if (budget.id) {
             const { id, userId, title, monthlyIncome, expanses } = budget;
             const budgetForUpdate = { id, userId, title, monthlyIncome, expanses, template: false };
-            saveBudget({ ...budgetForUpdate, isActive: true });
+            saveBudgetInDataContext({ ...budgetForUpdate, isActive: true });
         }
     }, [budget]);
 

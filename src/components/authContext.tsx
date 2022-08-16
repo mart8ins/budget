@@ -10,7 +10,7 @@ const AuthContextProvider = ({ children }: any) => {
         id: "1",
         username: "Aiga",
         password: "123",
-        status: false,
+        status: true,
         error: {
             status: false,
             message: "",
@@ -124,6 +124,56 @@ const AuthContextProvider = ({ children }: any) => {
                     userId: "3399",
                     title: "Marts",
                     monthlyIncome: "1666",
+                    template: false,
+                    isActive: false,
+                    expanses: [
+                        {
+                            id: "1",
+                            title: "Aigai",
+                            subjects: [
+                                {
+                                    id: "3",
+                                    payed: "",
+                                    payment: "233",
+                                    remaining: "233",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "6",
+                                    payed: "",
+                                    payment: "122",
+                                    remaining: "122",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                        {
+                            id: "344",
+                            title: "Ogresgals",
+                            subjects: [
+                                {
+                                    id: "31",
+                                    payed: "",
+                                    payment: "45",
+                                    remaining: "45",
+                                    title: "Pārtika",
+                                },
+                                {
+                                    id: "46",
+                                    payed: "",
+                                    payment: "66",
+                                    remaining: "66",
+                                    title: "Apkure",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    id: "13163",
+                    userId: "36399",
+                    title: "Augusts",
+                    monthlyIncome: "4522",
                     template: false,
                     isActive: false,
                     expanses: [

@@ -9,7 +9,7 @@ export const CreateContext = createContext({} as CreateContextInterface);
 
 const CreateContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
-    const { saveBudget, addNewTemplate } = useContext(DataContext);
+    const { saveBudgetInDataContext, saveTemplateInDataContext } = useContext(DataContext);
     const { seeLandingPage } = useContext(NavigationContext);
 
     // NEW TEMPLATE
@@ -43,8 +43,8 @@ const CreateContextprovider = ({ children }: any) => {
         addExpansesB(filtered);
     };
 
-    const addBudget = () => {
-        budget.template ? addNewTemplate(budget) : saveBudget(budget);
+    const saveTemplateOrBudget = () => {
+        budget.template ? saveTemplateInDataContext(budget) : saveBudgetInDataContext(budget);
         setBudget({
             id: uuidv4(),
             userId: user.id,
@@ -58,7 +58,7 @@ const CreateContextprovider = ({ children }: any) => {
     };
 
     return (
-        <CreateContext.Provider value={{ budget, addBudgetData, addExpansesB, deletePaymentExpanseB, addBudget }}>
+        <CreateContext.Provider value={{ budget, addBudgetData, addExpansesB, deletePaymentExpanseB, saveTemplateOrBudget }}>
             {children}
         </CreateContext.Provider>
     );

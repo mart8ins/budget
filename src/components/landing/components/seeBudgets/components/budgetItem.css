@@ -1,7 +1,7 @@
 .item__container {
   width: 90%;
-  margin: 20px auto;
-  background-color: #f0f8ff;
+  margin: 15px auto;
+  background-color: #87ceeb;
   border-radius: 5px;
   -webkit-box-shadow: 1px 2px 2px 2px #f0f8ff;
           box-shadow: 1px 2px 2px 2px #f0f8ff;
@@ -10,9 +10,9 @@
 .item__container .item__container__top {
   width: 100%;
   text-align: center;
-  padding: 4px 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  color: #f0f8ff;
 }
 
 .item__container .item__container__bottom {
@@ -25,10 +25,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px;
 }
 
 .item__container .item__container__bottom .budget__is__active {
-  width: 50%;
+  width: 33%;
   text-align: center;
 }
 
@@ -106,4 +107,8 @@
   background-color: #d03021;
   -webkit-box-shadow: 0px 7px 7px #d03021;
           box-shadow: 0px 7px 7px #d03021;
+}
+
+.active__container {
+  background-color: #16182a;
 }

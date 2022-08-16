@@ -12,15 +12,15 @@ function BudgetItem({ data }: Props) {
     const isTemplate = data.template;
     const [showBudget, setShowBudget] = useState(false);
 
-    const { saveBudget } = useContext(DataContext);
+    const { saveBudgetInDataContext } = useContext(DataContext);
 
     const setBudgetAsActive: React.MouseEventHandler = () => {
         // updates all budgets
-        saveBudget({ ...data, isActive: true });
+        saveBudgetInDataContext({ ...data, isActive: true });
     };
 
     return (
-        <div className="item__container">
+        <div className={`item__container ${data.isActive && "active__container"}`}>
             <div className="item__container__top">{data.title}</div>
             <div className="item__container__bottom">
                 {data.isActive ? (
