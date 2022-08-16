@@ -42,8 +42,13 @@ function CreateBlock() {
     };
 
     const handleChangeForPaymentRow = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let rem = "";
+        if (e.target.name === "payment") {
+            rem = e.target.value;
+        }
         setPaymentRow({
             ...paymentRow,
+            remaining: rem,
             [e.target.name]: e.target.value,
         });
     };
