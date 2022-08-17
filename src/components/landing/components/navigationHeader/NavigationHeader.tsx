@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../../authContext";
 import { CreateContext } from "../../../createContext";
@@ -12,10 +12,6 @@ function NavigationHeader({}: Props) {
     const { allTemplates, allBudgets } = useContext(DataContext);
     const { budget, addBudgetData } = useContext(CreateContext);
     const { navigateTo, createTemplate, createBudget, seeBudgets } = useContext(NavigationContext);
-
-    useEffect(() => {
-        console.log(allTemplates);
-    }, [allTemplates, allBudgets]);
 
     return (
         <div className="create__options__header">

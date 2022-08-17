@@ -42,6 +42,7 @@ export type PaymentRow = {
 // ACTIVE BUDGET CONTEXT
 export interface ActiveBudgetContextInterface {
     budget: ActiveBudget;
+    clearBudget: () => void;
     updateIncome: (income: string) => void;
     updateAmount: (expansesId: string, subjectId: string, expansesType: string, amount: string) => void;
     addActiveBudget: () => void;

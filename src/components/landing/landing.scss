@@ -6,6 +6,7 @@
     width: 90%;
 
     .select__active__budget {
+        margin-top: 40px;
         @include flexCenterColumn();
         h4 {
             color: $secondary-color;

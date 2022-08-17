@@ -17,4 +17,8 @@
             background-color: lighten($header-background, 15%);
         }
     }
+    .no__data {
+        margin-top: 120px;
+        @include flexCenterColumn();
+    }
 }

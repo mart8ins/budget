@@ -46,10 +46,11 @@ function CreateBlock() {
         if (e.target.name === "payment") {
             rem = e.target.value;
         }
+        console.log(rem, "3333");
         setPaymentRow({
             ...paymentRow,
-            remaining: rem,
             [e.target.name]: e.target.value,
+            remaining: rem,
         });
     };
 

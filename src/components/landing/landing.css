@@ -5,6 +5,7 @@
 }
 
 .landing__container .select__active__budget {
+  margin-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -30,6 +30,8 @@ function SeeBudgets({}: Props) {
                     return <BudgetItem key={item.id} data={item} />;
                 })}
             </div>
+            <div className="no__data">{activeTab === "templates" && allTemplates.length === 0 && "No templates avaliable"}</div>
+            <div className="no__data">{activeTab === "budgets" && allBudgets.length === 0 && "No budgets avaliable"}</div>
         </div>
     );
 }

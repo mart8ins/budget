@@ -11,7 +11,12 @@
         text-align: center;
         font-size: 1.1rem;
         font-weight: bold;
+        font-family: "Kdam Thmor Pro", sans-serif;
         color: $primary-color;
+        .delete__template {
+            @include customBtn(auto, 0.7rem, 0, 0, block, $error-color);
+            float: right;
+        }
     }
 
     .item__container__bottom {
@@ -27,6 +32,8 @@
                 font-size: 0.8rem;
                 color: $primary-color;
                 font-weight: bold;
+                font-family: "Kdam Thmor Pro", sans-serif;
+                letter-spacing: 2px;
             }
         }
         .item__container__bottom__option {
@@ -37,6 +44,7 @@
 
             .bottom__option__btn {
                 @include customBtn(auto, 0.7rem, 0, 0, inline-block, $header-background);
+                box-shadow: 0 0px 5px $primary-color;
             }
             .delete {
                 @include customBtn(auto, 0.7rem, 0, 0, inline-block, $error-color);

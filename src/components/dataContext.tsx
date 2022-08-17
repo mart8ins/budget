@@ -1,12 +1,14 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { NewBudget } from "../models/models";
 import { AuthContext } from "./authContext";
+import { NavigationContext } from "./navigationContext";
 
 interface DataContextInterface {
     allTemplates: NewBudget[];
     saveTemplateInDataContext: (template: NewBudget) => void;
     allBudgets: NewBudget[];
     saveBudgetInDataContext: (budget: NewBudget) => void;
+    deleteBudgetData: (budgetId: string, isTemplate: boolean | null) => void;
 }
 
 export const DataContext = createContext({} as DataContextInterface);
@@ -17,6 +19,7 @@ const DataContextProvider = ({ children }: any) => {
             data: { templates, budgets },
         },
     } = useContext(AuthContext);
+    const { seeLandingPage } = useContext(NavigationContext);
 
     const [allTemplates, setAllTemplates] = useState<NewBudget[]>(templates);
     const saveTemplateInDataContext = (template: NewBudget) => {
@@ -26,6 +29,7 @@ const DataContextProvider = ({ children }: any) => {
     const [allBudgets, setAllBudgets] = useState<NewBudget[]>(budgets);
 
     const saveBudgetInDataContext = (budget: NewBudget) => {
+        console.log(budget, "!!!!!!");
         // udate budget with new data if it exists or add new budget to list
         const budgetExists = allBudgets.filter((b) => {
             return b.id === budget.id;
@@ -45,9 +49,27 @@ const DataContextProvider = ({ children }: any) => {
         }
     };
 
-    console.log(allBudgets, allTemplates);
+    const deleteBudgetData = (budgetId: string, isTemplate: boolean | null) => {
+        let filtered;
+        if (isTemplate) {
+            filtered = allTemplates.filter((data) => {
+                return data.id !== budgetId;
+            });
+            setAllTemplates(filtered);
+        } else {
+            filtered = allBudgets.filter((data) => {
+                return data.id !== budgetId;
+            });
+            setAllBudgets(filtered);
+        }
+    };
+
+    useEffect(() => {
+        if (allBudgets.length === 0 && allTemplates.length === 0) seeLandingPage();
+    }, [allBudgets, allTemplates]);
+
     return (
-        <DataContext.Provider value={{ allTemplates, saveTemplateInDataContext, allBudgets, saveBudgetInDataContext }}>
+        <DataContext.Provider value={{ allTemplates, saveTemplateInDataContext, allBudgets, saveBudgetInDataContext, deleteBudgetData }}>
             {children}
         </DataContext.Provider>
     );

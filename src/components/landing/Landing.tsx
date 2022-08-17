@@ -20,11 +20,16 @@ function Landing({}: Props) {
     const [activeBudgetId, setActiveBudgetId] = useState("");
 
     useEffect(() => {
-        allBudgets.forEach((item) => {
-            if (item.isActive) {
-                setActiveBudgetId(item.id);
-            }
-        });
+        if (allBudgets.length === 0) {
+            setActiveBudgetId("");
+        } else {
+            setActiveBudgetId("");
+            allBudgets.forEach((item) => {
+                if (item.isActive) {
+                    setActiveBudgetId(item.id);
+                }
+            });
+        }
     }, [allBudgets]);
 
     return (

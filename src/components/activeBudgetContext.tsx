@@ -88,10 +88,12 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         const activeBudget = allBudgets.filter((budget) => {
             if (budget.isActive) return budget;
         });
-        setBudget({
-            ...budget,
-            ...activeBudget[0],
-        });
+        if (activeBudget.length > 0) {
+            setBudget({
+                ...budget,
+                ...activeBudget[0],
+            });
+        }
     };
 
     // UPDATE USERS BUDGET IN DB
@@ -103,8 +105,19 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         }
     }, [budget]);
 
+    const clearBudget = () => {
+        setBudget({
+            id: "",
+            userId: "",
+            title: "",
+            monthlyIncome: "",
+            remainingMoney: "",
+            expanses: [],
+            totals: { payment: "", payed: "", remaining: "" },
+        });
+    };
     return (
-        <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount, addActiveBudget }}>
+        <ActiveBudgetContext.Provider value={{ budget, updateIncome, updateAmount, addActiveBudget, clearBudget }}>
             {children}
         </ActiveBudgetContext.Provider>
     );

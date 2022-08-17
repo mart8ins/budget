@@ -55,6 +55,10 @@
                     transition: 0.5s;
                 }
             }
+            .submit__button {
+                @include customBtn(80px, 0.9rem, 15px, 0, default, $header-background);
+                border: 1px solid white;
+            }
         }
     }
 }
