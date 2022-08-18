@@ -1,19 +1,21 @@
 @import "../../../../styles/styles";
 
 .budget__footer {
-    box-shadow: 0 0 2px $secondary-background;
+    box-shadow: 0 0 2px $header-background;
+    border-radius: 3px;
     padding: 5px;
-    margin: 10px 0;
+    margin: 20px 0;
 
     .footer__title {
-        color: $primary-color;
+        color: $header-background;
         padding: 5px;
+        font-family: "Kdam Thmor Pro", sans-serif;
         span {
             font-weight: bold;
-            font-size: 1.2rem;
-            background-color: $green-color;
+            font-size: 1.1rem;
+            background-color: $header-background;
             color: $primary-color;
-            padding: 5px;
+            padding: 5px 15px;
             border-radius: 5px;
         }
     }

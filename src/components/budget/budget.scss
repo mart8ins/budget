@@ -5,10 +5,9 @@
     @include flexCenter;
 
     .budget__wrapper {
-        background-color: $main-background;
-        width: 90%;
-        border-radius: 5px;
+        width: 95%;
+        border-radius: 3px;
         padding: 10px;
-        box-shadow: 0 0 5px white;
+        box-shadow: 0 0 3px $header-background;
     }
 }

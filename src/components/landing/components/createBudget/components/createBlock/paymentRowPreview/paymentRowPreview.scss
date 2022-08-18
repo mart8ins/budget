@@ -1,17 +1,17 @@
 @import "../../../../../../../styles/styles";
 
 .payment__row__preview__container {
-    width: 85%;
+    width: 70%;
     padding: 7px;
     margin-top: 5px;
-    background-color: $primary-color;
     border-radius: 3px;
-    background-color: darken($header-color, 15%);
+    border: 2px solid $primary-color;
+    background-color: $primary-color;
 
     .payment__item {
         width: 75%;
         text-align: center;
-        color: white;
+        color: darken($primary-color, 80%);
     }
 
     @include flexRowSpaceBetween();

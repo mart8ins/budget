@@ -1,10 +1,10 @@
 .payment__row__preview__container {
-  width: 85%;
+  width: 70%;
   padding: 7px;
   margin-top: 5px;
-  background-color: #f0f8ff;
   border-radius: 3px;
-  background-color: #6775d7;
+  border: 2px solid #f0f8ff;
+  background-color: #f0f8ff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,7 +19,7 @@
 .payment__row__preview__container .payment__item {
   width: 75%;
   text-align: center;
-  color: white;
+  color: #002e57;
 }
 
 .payment__row__preview__container .delete__row__btn {

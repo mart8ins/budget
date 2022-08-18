@@ -7,10 +7,10 @@ export const AuthContext = createContext({} as AuthContextInterface);
 
 const AuthContextProvider = ({ children }: any) => {
     const [user, setUser] = useState<User>({
-        id: "",
-        username: "",
-        password: "",
-        status: false,
+        id: "1",
+        username: "Aiga",
+        password: "123",
+        status: true,
         error: {
             status: false,
             message: "",

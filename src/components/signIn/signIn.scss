@@ -8,10 +8,9 @@
         width: 60%;
         margin: 0 auto;
         background-color: $header-background;
-
         .auth__change {
             display: flex;
-            color: darken($header-color, 40%);
+            color: darken($header-color, 20%);
             font-family: "Kdam Thmor Pro", sans-serif;
             .auth__option {
                 width: 100%;

@@ -1,63 +1,55 @@
 @import "../../../../styles/styles";
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
 .expanses__type {
-    box-shadow: 0 0 2px $primary-color;
-    margin: 8px 0px;
+    background-color: lighten($header-background, 85%);
+    border-radius: 3px;
+    margin: 18px 0px;
     padding: 8px;
     .expanses__title {
         text-transform: uppercase;
         font-style: italic;
-        color: $primary-color;
+        color: $header-background;
+        font-weight: bold;
     }
 
     .payment__row {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid $header-background;
         padding: 5px 0px;
 
         .payment__cell {
-            width: 25%;
+            width: 30%;
             text-align: center;
         }
         .payment__for {
             font-weight: bold;
-            color: $primary-color;
+            color: $header-background;
         }
         .payment__amount {
-            border-radius: 30%;
-            width: 50px;
+            font-family: "Kdam Thmor Pro", sans-serif;
+            border-radius: 15%;
+            width: 45px;
             height: 35px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.9rem;
             border: none;
-            background-color: $secondary-background;
-            color: $primary-color;
+            color: $header-background;
+            box-shadow: 0 0 3px $header-background;
             font-size: 1rem;
+            font-weight: bold;
         }
         input[name="payment"]:focus,
         input[name="payed"]:focus,
         input[name="remaining"]:focus {
             outline: none;
             border: none;
-            color: whitesmoke;
+            background-color: $main-background;
+            color: $primary-color;
         }
-        // input[name="payed"] {
-        // }
         input[name="remaining"] {
-            font-weight: bold;
             pointer-events: none;
         }
     }

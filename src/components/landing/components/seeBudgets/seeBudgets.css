@@ -6,13 +6,13 @@
   width: 50%;
   border: none;
   padding: 8px;
-  background-color: #16182a;
+  background-color: #f0f8ff;
   color: #87ceeb;
   font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .see__budgets__container .tab__nav .active__budget__tab {
-  font-weight: bold;
   color: #f0f8ff;
   background-color: #30355c;
 }

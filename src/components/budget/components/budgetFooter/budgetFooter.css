@@ -1,20 +1,22 @@
 .budget__footer {
-  -webkit-box-shadow: 0 0 2px #2a52be;
-          box-shadow: 0 0 2px #2a52be;
+  -webkit-box-shadow: 0 0 2px #16182a;
+          box-shadow: 0 0 2px #16182a;
+  border-radius: 3px;
   padding: 5px;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .budget__footer .footer__title {
-  color: #f0f8ff;
+  color: #16182a;
   padding: 5px;
+  font-family: "Kdam Thmor Pro", sans-serif;
 }
 
 .budget__footer .footer__title span {
   font-weight: bold;
-  font-size: 1.2rem;
-  background-color: #32cd32;
+  font-size: 1.1rem;
+  background-color: #16182a;
   color: #f0f8ff;
-  padding: 5px;
+  padding: 5px 15px;
   border-radius: 5px;
 }

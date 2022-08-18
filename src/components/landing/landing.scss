@@ -4,9 +4,13 @@
     min-height: 80vh;
     margin: 0 auto;
     width: 90%;
-
     .select__active__budget {
-        margin-top: 40px;
+        width: 70%;
+        margin: 70px auto;
+        padding: 20px 10px;
+        background-color: $header-background;
+        font-size: 1.2rem;
+        border-radius: 10px;
         @include flexCenterColumn();
         h4 {
             color: $secondary-color;
@@ -18,6 +22,6 @@
         }
     }
     .select__valid {
-        height: 65vh;
+        margin-top: 180px;
     }
 }

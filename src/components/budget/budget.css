@@ -12,10 +12,9 @@
 }
 
 .container .budget__wrapper {
-  background-color: #191970;
-  width: 90%;
-  border-radius: 5px;
+  width: 95%;
+  border-radius: 3px;
   padding: 10px;
-  -webkit-box-shadow: 0 0 5px white;
-          box-shadow: 0 0 5px white;
+  -webkit-box-shadow: 0 0 3px #16182a;
+          box-shadow: 0 0 3px #16182a;
 }

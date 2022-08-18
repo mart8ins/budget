@@ -40,39 +40,38 @@ function Landing({}: Props) {
             {navigateTo === "" && activeBudgetId && <Budget />}
 
             {navigateTo === "" && !activeBudgetId && allBudgets.length > 0 && (
-                <div className="select__active__budget select__valid">
-                    <h4 onClick={seeBudgets}>Select active budget</h4>
+                <div className="select__active__budget select__valid" onClick={seeBudgets}>
+                    <h4>Select active budget</h4>
                 </div>
             )}
 
             {navigateTo === "" && !activeBudgetId && allBudgets.length === 0 && allTemplates.length > 0 && (
-                <div className="select__active__budget select__valid">
-                    <h4 onClick={createBudget}>Create your first budget</h4>
+                <div className="select__active__budget select__valid" onClick={createBudget}>
+                    <h4>Create your first budget</h4>
                 </div>
             )}
 
             {navigateTo === "" && allBudgets.length === 0 && allTemplates.length === 0 && (
-                <div className="select__active__budget">
-                    <h4 onClick={createBudget}>Create budget</h4>
+                <div className="select__active__budget" onClick={createBudget}>
+                    <h4>Create budget</h4>
                 </div>
             )}
             {navigateTo === "" && allTemplates.length === 0 && allBudgets.length === 0 && (
-                <div className="select__active__budget">
-                    <h4
-                        onClick={() => {
-                            createTemplate();
-                            addBudgetData({
-                                id: uuidv4(),
-                                userId: user.id,
-                                title: "",
-                                monthlyIncome: "",
-                                expanses: [],
-                                template: true,
-                                isActive: false,
-                            });
-                        }}>
-                        Create template
-                    </h4>
+                <div
+                    className="select__active__budget"
+                    onClick={() => {
+                        createTemplate();
+                        addBudgetData({
+                            id: uuidv4(),
+                            userId: user.id,
+                            title: "",
+                            monthlyIncome: "",
+                            expanses: [],
+                            template: true,
+                            isActive: false,
+                        });
+                    }}>
+                    <h4>Create template</h4>
                 </div>
             )}
         </div>

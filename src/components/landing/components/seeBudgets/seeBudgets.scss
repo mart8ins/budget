@@ -7,12 +7,12 @@
             width: 50%;
             border: none;
             padding: 8px;
-            background-color: $header-background;
+            background-color: $primary-color;
             color: $secondary-color;
             font-size: 0.8rem;
+            font-weight: bold;
         }
         .active__budget__tab {
-            font-weight: bold;
             color: $primary-color;
             background-color: lighten($header-background, 15%);
         }
