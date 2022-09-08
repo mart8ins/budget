@@ -18,6 +18,7 @@ export type ActiveBudget = {
     expanses: Expanses[];
     remainingMoney: string;
     totals: Totals;
+    isActive: boolean;
 };
 
 export type Expanses = {
@@ -52,7 +53,6 @@ export interface ActiveBudgetContextInterface {
 export type User = {
     id: string;
     username: string;
-    password: string;
     status: boolean;
     error: { status: boolean; message: string };
     data: {

@@ -34,6 +34,7 @@ function CreateBudget() {
             template: false,
             id: uuidv4(),
             title: "",
+            userId: user.id,
         });
     };
 

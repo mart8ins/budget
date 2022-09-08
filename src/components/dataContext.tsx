@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 import { NewBudget } from "../models/models";
 import { AuthContext } from "./authContext";
 import { NavigationContext } from "./navigationContext";
+import axios from "axios";
 
 interface DataContextInterface {
     allTemplates: NewBudget[];
@@ -9,43 +10,54 @@ interface DataContextInterface {
     allBudgets: NewBudget[];
     saveBudgetInDataContext: (budget: NewBudget) => void;
     deleteBudgetData: (budgetId: string, isTemplate: boolean | null) => void;
+    saveBudgetToActive: (budgetId: string) => void;
+    updateBudgetWithData: (budget: NewBudget) => void;
 }
 
 export const DataContext = createContext({} as DataContextInterface);
 
 const DataContextProvider = ({ children }: any) => {
-    const {
-        user: {
-            data: { templates, budgets },
-        },
-    } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const { seeLandingPage } = useContext(NavigationContext);
 
-    const [allTemplates, setAllTemplates] = useState<NewBudget[]>(templates);
+    // TEMPLATES
+    const [allTemplates, setAllTemplates] = useState<NewBudget[]>([]);
     const saveTemplateInDataContext = (template: NewBudget) => {
         setAllTemplates([template, ...allTemplates]);
+        // UPDATE DB WITH NEW TEMPLATE
+        axios.post("http://localhost:3001/budget/add", { data: template });
     };
 
-    const [allBudgets, setAllBudgets] = useState<NewBudget[]>(budgets);
-
+    // BUDGETS
+    const [allBudgets, setAllBudgets] = useState<NewBudget[]>([]);
     const saveBudgetInDataContext = (budget: NewBudget) => {
-        console.log(budget, "!!!!!!");
-        // udate budget with new data if it exists or add new budget to list
-        const budgetExists = allBudgets.filter((b) => {
-            return b.id === budget.id;
+        setAllBudgets([budget, ...allBudgets]);
+        // UPDATE DB WITH NEW BUDGET
+        axios.post("http://localhost:3001/budget/add", { data: budget });
+    };
+
+    const saveBudgetToActive = (budgetId: string) => {
+        const updatedBudgets = allBudgets.map((budget) => {
+            let newBudget = budget;
+            if (budgetId === budget.id) {
+                newBudget.isActive = true;
+            } else {
+                newBudget.isActive = false;
+            }
+            return newBudget;
         });
-        if (budgetExists.length) {
-            const ref = allBudgets;
-            const updated = ref.filter((b) => {
-                // uncheck active budget if new budget is set to active
-                if (budget.isActive) {
-                    b.isActive = false;
-                }
+        setAllBudgets(updatedBudgets);
+        axios.post("http://localhost:3001/budget/active", { budgetId: budgetId });
+    };
+
+    const updateBudgetWithData = async (budget: NewBudget) => {
+        if (user && allBudgets) {
+            const allBudgetRef = allBudgets;
+            const removedUpdatable = allBudgetRef.filter((b) => {
                 return b.id !== budget.id;
             });
-            setAllBudgets([budget, ...updated]);
-        } else {
-            setAllBudgets([budget, ...allBudgets]);
+            setAllBudgets([budget, ...removedUpdatable]);
+            await axios.post("http://localhost:3001/budget/update", { data: budget });
         }
     };
 
@@ -68,8 +80,22 @@ const DataContextProvider = ({ children }: any) => {
         if (allBudgets.length === 0 && allTemplates.length === 0) seeLandingPage();
     }, [allBudgets, allTemplates]);
 
+    useEffect(() => {
+        setAllTemplates(user.data.templates);
+        setAllBudgets(user.data.budgets);
+    }, [user]);
+
     return (
-        <DataContext.Provider value={{ allTemplates, saveTemplateInDataContext, allBudgets, saveBudgetInDataContext, deleteBudgetData }}>
+        <DataContext.Provider
+            value={{
+                allTemplates,
+                saveTemplateInDataContext,
+                allBudgets,
+                saveBudgetInDataContext,
+                deleteBudgetData,
+                saveBudgetToActive,
+                updateBudgetWithData,
+            }}>
             {children}
         </DataContext.Provider>
     );

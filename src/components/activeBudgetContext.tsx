@@ -8,7 +8,7 @@ export const ActiveBudgetContext = createContext({} as ActiveBudgetContextInterf
 
 const ActiveBudgetContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
-    const { allBudgets, saveBudgetInDataContext } = useContext(DataContext);
+    const { allBudgets, updateBudgetWithData } = useContext(DataContext);
     const { navigateTo } = useContext(NavigationContext);
 
     const [budget, setBudget] = useState<ActiveBudget>({
@@ -19,6 +19,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         remainingMoney: "",
         expanses: [],
         totals: { payment: "", payed: "", remaining: "" },
+        isActive: true,
     });
 
     const updateIncome = (income: string) => {
@@ -82,7 +83,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
         addActiveBudget();
-    }, [user, navigateTo]);
+    }, [user, navigateTo, allBudgets]);
 
     const addActiveBudget = () => {
         const activeBudget = allBudgets.filter((budget) => {
@@ -99,11 +100,11 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
     // UPDATE USERS BUDGET IN DB
     useEffect(() => {
         if (budget.id) {
-            const { id, userId, title, monthlyIncome, expanses } = budget;
-            const budgetForUpdate = { id, userId, title, monthlyIncome, expanses, template: false };
-            saveBudgetInDataContext({ ...budgetForUpdate, isActive: true });
+            const { id, userId, title, monthlyIncome, expanses, isActive, totals } = budget;
+            const budgetForUpdate = { id, userId, title, monthlyIncome, expanses, template: false, isActive, totals };
+            updateBudgetWithData(budgetForUpdate);
         }
-    }, [budget]);
+    }, [budget.monthlyIncome, budget.expanses]);
 
     const clearBudget = () => {
         setBudget({
@@ -114,6 +115,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
             remainingMoney: "",
             expanses: [],
             totals: { payment: "", payed: "", remaining: "" },
+            isActive: false,
         });
     };
     return (

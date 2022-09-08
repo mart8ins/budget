@@ -1,16 +1,14 @@
 import { createContext, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { AuthContextInterface, User } from "../models/models";
-import { allUsers } from "../models/data";
+import axios from "axios";
 
 export const AuthContext = createContext({} as AuthContextInterface);
 
 const AuthContextProvider = ({ children }: any) => {
     const [user, setUser] = useState<User>({
-        id: "1",
-        username: "Aiga",
-        password: "123",
-        status: true,
+        id: "",
+        username: "",
+        status: false,
         error: {
             status: false,
             message: "",
@@ -21,18 +19,22 @@ const AuthContextProvider = ({ children }: any) => {
         },
     });
 
-    const loggIn = (signUp: boolean, credentials: { username: string; password: string }) => {
+    const loggIn = async (signUp: boolean, credentials: { username: string; password: string }) => {
+        // SIGN UP NEW USER
         if (signUp) {
-            // 1. send data to server, save it and return success or failure with data to setState
-            // 2. *************  this is only for test uses before backend
-            setUser({
-                id: uuidv4(),
+            const resp = await axios.post("http://localhost:3001/budget/user", {
                 username: credentials.username,
                 password: credentials.password,
-                status: true,
+                action: signUp,
+            });
+
+            setUser({
+                id: resp.data.userId,
+                username: credentials.username,
+                status: resp.data.status,
                 error: {
                     status: false,
-                    message: "Invalid credentials",
+                    message: "",
                 },
                 data: {
                     templates: [],
@@ -41,31 +43,31 @@ const AuthContextProvider = ({ children }: any) => {
             });
         }
         if (!signUp) {
-            // 1. send data to server, check it if user exists
-            // 2. *************  this is only for test uses before backend
-            const userExists = allUsers.filter((user) => {
-                return user.username === credentials.username && user.password === credentials.password;
+            // SIGN IN
+            const resp = await axios.post("http://localhost:3001/budget/user", {
+                username: credentials.username,
+                password: credentials.password,
+                action: signUp,
             });
-            if (userExists.length) {
-                setUser({
-                    id: userExists[0].id,
-                    username: userExists[0].username,
-                    password: userExists[0].password,
+            if (resp.data.status) {
+                const budgetResponse = await axios.get("http://localhost:3001/budget", { params: { userId: resp.data.userId } });
+                await setUser({
+                    id: resp.data.userId,
+                    username: credentials.username,
                     status: true,
                     error: {
                         status: false,
-                        message: "Invalid credentials",
+                        message: "",
                     },
                     data: {
-                        templates: userExists[0].data.templates,
-                        budgets: userExists[0].data.budgets,
+                        templates: budgetResponse.data.templates,
+                        budgets: budgetResponse.data.budgets,
                     },
                 });
             } else {
                 setUser({
                     id: "",
                     username: "",
-                    password: "",
                     status: false,
                     error: {
                         status: true,
@@ -84,7 +86,6 @@ const AuthContextProvider = ({ children }: any) => {
         setUser({
             id: "",
             username: "",
-            password: "",
             status: false,
             error: {
                 status: false,

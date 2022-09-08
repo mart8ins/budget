@@ -12,14 +12,9 @@ type Props = {
 function BudgetItem({ data }: Props) {
     const isTemplate = data.template;
 
-    const { saveBudgetInDataContext, deleteBudgetData } = useContext(DataContext);
+    const { saveBudgetToActive, deleteBudgetData } = useContext(DataContext);
     const { seeLandingPage } = useContext(NavigationContext);
     const { clearBudget } = useContext(ActiveBudgetContext);
-
-    const setBudgetAsActive: React.MouseEventHandler = () => {
-        // updates all budgets
-        saveBudgetInDataContext({ ...data, isActive: true });
-    };
 
     const deleteData = () => {
         if (data.isActive) {
@@ -48,7 +43,7 @@ function BudgetItem({ data }: Props) {
                         </div>
                     ) : (
                         <div className="item__container__bottom__option">
-                            <button onClick={setBudgetAsActive} className="bottom__option__btn">
+                            <button onClick={() => saveBudgetToActive(data.id)} className="bottom__option__btn">
                                 Set as active
                             </button>
                         </div>

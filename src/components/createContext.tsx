@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { NewBudget, Expanses, CreateContextInterface } from "../models/models";
 import { AuthContext } from "./authContext";
 import { v4 as uuidv4 } from "uuid";
@@ -11,17 +11,29 @@ const CreateContextprovider = ({ children }: any) => {
     const { user } = useContext(AuthContext);
     const { saveBudgetInDataContext, saveTemplateInDataContext } = useContext(DataContext);
     const { seeLandingPage } = useContext(NavigationContext);
-
     // NEW TEMPLATE
+
     const [budget, setBudget] = useState<NewBudget>({
-        id: uuidv4(),
-        userId: user.id,
+        id: "",
+        userId: "",
         title: "",
         monthlyIncome: "",
         expanses: [],
         template: null,
         isActive: false,
     });
+
+    useEffect(() => {
+        setBudget({
+            id: uuidv4(),
+            userId: user.id,
+            title: "",
+            monthlyIncome: "",
+            expanses: [],
+            template: null,
+            isActive: false,
+        });
+    }, [user]);
 
     const addBudgetData = (budget: NewBudget) => {
         setBudget(budget);
