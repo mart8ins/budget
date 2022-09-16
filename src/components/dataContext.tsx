@@ -74,6 +74,7 @@ const DataContextProvider = ({ children }: any) => {
             });
             setAllBudgets(filtered);
         }
+        axios.post("http://localhost:3001/budget/delete", { id: budgetId });
     };
 
     useEffect(() => {

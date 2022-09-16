@@ -62,7 +62,6 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
                 remainingTotal += +sub.remaining;
             });
         });
-
         let freeMoney = Number(budget.monthlyIncome) - paymentTotal;
 
         setBudget({
@@ -78,11 +77,13 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
 
     useEffect(() => {
         calculateTotals();
-    }, [budget.expanses, budget.monthlyIncome]);
+    }, [budget.expanses]);
 
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
-        addActiveBudget();
+        if (!budget.id) {
+            addActiveBudget();
+        }
     }, [user, navigateTo, allBudgets]);
 
     const addActiveBudget = () => {
