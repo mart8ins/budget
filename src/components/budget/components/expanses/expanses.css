@@ -68,3 +68,23 @@
 .expanses__type .payment__row input[name="remaining"] {
   pointer-events: none;
 }
+
+@media screen and (min-width: 786px) {
+  .expanses__type .expanses__title {
+    font-size: 1.1rem;
+  }
+  .expanses__type .payment__row {
+    padding: 10px 0px;
+  }
+  .expanses__type .payment__row .payment__for {
+    font-size: 1rem;
+  }
+  .expanses__type .payment__row .payment__amount {
+    border-radius: 10%;
+    width: 80px;
+    height: 40px;
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+    text-align: center;
+  }
+}

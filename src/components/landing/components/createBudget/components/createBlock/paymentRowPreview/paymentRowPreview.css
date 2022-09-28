@@ -45,3 +45,35 @@
   -webkit-box-shadow: 0px 7px 7px #d03021;
           box-shadow: 0px 7px 7px #d03021;
 }
+
+@media screen and (min-width: 786px) {
+  .payment__row__preview__container {
+    width: 30%;
+  }
+  .payment__row__preview__container .payment__item {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+  .payment__row__preview__container .delete__row__btn {
+    display: inline;
+    margin: 0 0;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 66px;
+    background-color: #e15043;
+    color: #f0f8ff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 4px 4px #d03021;
+            box-shadow: 0px 4px 4px #d03021;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    font-size: 1rem;
+  }
+  .payment__row__preview__container .delete__row__btn:hover {
+    cursor: pointer;
+    background-color: #d03021;
+    -webkit-box-shadow: 0px 7px 7px #d03021;
+            box-shadow: 0px 7px 7px #d03021;
+  }
+}

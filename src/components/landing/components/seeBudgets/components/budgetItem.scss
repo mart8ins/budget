@@ -55,3 +55,40 @@
 .active__container {
     background-color: $header-background;
 }
+
+@media screen and (min-width: 786px) {
+    .item__container {
+        width: 60%;
+        margin: 20px auto;
+        .item__container__top {
+            font-size: 1.6rem;
+            .delete__template {
+                @include customBtn(auto, 1rem, 3px, 5px, block, $error-color);
+            }
+        }
+
+        .item__container__bottom {
+            padding: 10px;
+            .budget__is__active {
+                width: 43%;
+                span {
+                    background-color: $green-color;
+                    border-radius: 5px;
+                    padding: 5px;
+                    font-size: 1rem;
+                    letter-spacing: 3px;
+                }
+            }
+            .item__container__bottom__option {
+                padding: 10px;
+                .bottom__option__btn {
+                    @include customBtn(auto, 1rem, 0, 0, inline-block, $header-background);
+                    box-shadow: 0 0px 5px $primary-color;
+                }
+                .delete {
+                    @include customBtn(auto, 1rem, 0, 0, inline-block, $error-color);
+                }
+            }
+        }
+    }
+}

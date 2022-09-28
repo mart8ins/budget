@@ -47,13 +47,6 @@
           align-items: center;
 }
 
-.create__options__header .create__option .create__data:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 0px 4px 4px #191970;
-          box-shadow: 0px 4px 4px #191970;
-  border-radius: 5px;
-}
-
 .create__options__header .create__option .see__data {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,15 +72,47 @@
   transition: 0.5s;
 }
 
-.create__options__header .create__option .see__data:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 0px 4px 4px #191970;
-          box-shadow: 0px 4px 4px #191970;
-}
-
 .create__options__header .activeUI {
   -webkit-box-shadow: 0px 4px 4px #191970;
           box-shadow: 0px 4px 4px #191970;
   background-color: #191970;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 786px) {
+  .create__options__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .create__options__header .create__option {
+    font-size: 1.2rem;
+  }
+  .create__options__header .create__option .create__data {
+    padding: 10px;
+  }
+  .create__options__header .create__option .create__data:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 4px 4px #191970;
+            box-shadow: 0px 4px 4px #191970;
+    border-radius: 5px;
+  }
+  .create__options__header .create__option .see__data {
+    width: 110px;
+    padding: 5px;
+    margin-left: 25px;
+    border-radius: 4px;
+    border: 2px solid #a4ace7;
+  }
+  .create__options__header .create__option .see__data:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 4px 4px #191970;
+            box-shadow: 0px 4px 4px #191970;
+  }
 }

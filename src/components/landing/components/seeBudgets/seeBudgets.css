@@ -33,3 +33,21 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+@media screen and (min-width: 786px) {
+  .see__budgets__container {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .see__budgets__container .tab__nav .tab__nav__btn {
+    width: 50%;
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+  .see__budgets__container .tab__nav .tab__nav__btn:hover {
+    cursor: pointer;
+  }
+  .see__budgets__container .no__data {
+    margin-top: 200px;
+  }
+}

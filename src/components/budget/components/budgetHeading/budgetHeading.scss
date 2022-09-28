@@ -11,3 +11,12 @@
         font-family: "Kdam Thmor Pro", sans-serif;
     }
 }
+
+@media screen and (min-width: 786px) {
+    .budget__heading {
+        .cel__heading {
+            width: 25%;
+            font-size: 1.1rem;
+        }
+    }
+}

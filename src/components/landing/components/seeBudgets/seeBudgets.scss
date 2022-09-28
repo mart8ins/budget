@@ -22,3 +22,23 @@
         @include flexCenterColumn();
     }
 }
+
+@media screen and (min-width: 786px) {
+    .see__budgets__container {
+        width: 50%;
+        margin: 0 auto;
+        .tab__nav {
+            .tab__nav__btn {
+                width: 50%;
+                padding: 10px;
+                font-size: 1.3rem;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .no__data {
+            margin-top: 200px;
+        }
+    }
+}

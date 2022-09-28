@@ -26,3 +26,27 @@
         }
     }
 }
+
+@media screen and (min-width: 786px) {
+    .create__container {
+        margin-top: 0px;
+        padding-bottom: 150px;
+        .choose__option__container {
+            margin: 0 auto;
+            height: 40vh;
+            font-size: 1.5rem;
+            button {
+                @include customBtn(100px, 1.3rem, 8px, auto, block, $header-background);
+            }
+        }
+
+        .select__template__container {
+            select {
+                width: 300px;
+                box-shadow: 0 2px 5px black;
+                padding: 20px;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

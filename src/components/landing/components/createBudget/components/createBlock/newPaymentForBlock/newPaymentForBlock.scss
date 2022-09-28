@@ -1,4 +1,4 @@
-@import "../../../../../../../../styles/styles";
+@import "../../../../../../../styles/styles";
 
 .new__payment__block__container {
     padding-bottom: 50px;
@@ -14,5 +14,20 @@
 
     .add__payment__row__btn {
         @include customBtn(120px, 1rem, 30px, auto, block, $header-background);
+    }
+}
+
+@media screen and (min-width: 786px) {
+    .new__payment__block__container {
+        padding-bottom: 15px;
+        .new__payment__input {
+            width: 25%;
+            margin: 10px;
+            @include inputs(150px, 1.1rem, 15px, 15px);
+        }
+
+        .add__payment__row__btn {
+            @include customBtn(130px, 1.1rem, 35px, auto, block, $header-background);
+        }
     }
 }

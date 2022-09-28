@@ -110,3 +110,48 @@
   -webkit-box-shadow: 0px 7px 7px #16182a;
           box-shadow: 0px 7px 7px #16182a;
 }
+
+@media screen and (min-width: 786px) {
+  .auth__container .auth__box {
+    width: 20%;
+  }
+  .auth__container .auth__box .auth__change .auth__option {
+    padding: 15px;
+    font-size: 1.5rem;
+  }
+  .auth__container .auth__box .auth__change .auth__option:hover {
+    cursor: pointer;
+  }
+  .auth__container .auth__box .auth__inputs .auth__error {
+    font-size: 1.3rem;
+  }
+  .auth__container .auth__box .auth__inputs .input__ {
+    width: 60%;
+    font-size: 1.2rem;
+    padding: 8px;
+    margin: 10px;
+  }
+  .auth__container .auth__box .auth__inputs .submit__button {
+    display: default;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100px;
+    background-color: #282b4b;
+    color: #f0f8ff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 4px 4px #16182a;
+            box-shadow: 0px 4px 4px #16182a;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    font-size: 1.1rem;
+    border: 2px solid white;
+  }
+  .auth__container .auth__box .auth__inputs .submit__button:hover {
+    cursor: pointer;
+    background-color: #16182a;
+    -webkit-box-shadow: 0px 7px 7px #16182a;
+            box-shadow: 0px 7px 7px #16182a;
+  }
+}

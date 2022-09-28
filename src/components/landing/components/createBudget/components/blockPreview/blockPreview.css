@@ -21,10 +21,6 @@
   cursor: pointer;
 }
 
-.blocks__preview__container .block__preview h4 span:hover {
-  color: #d03021;
-}
-
 .blocks__preview__container .block__preview div {
   font-weight: bold;
   color: #191970;
@@ -43,4 +39,28 @@
   margin: 15px;
   width: 50%;
   text-align: right;
+}
+
+@media screen and (min-width: 786px) {
+  .blocks__preview__container .block__preview {
+    padding: 20px;
+    width: 30%;
+    margin: 15px auto;
+  }
+  .blocks__preview__container .block__preview h4 {
+    border-bottom: 3px solid #a4ace7;
+    font-size: 1.4rem;
+  }
+  .blocks__preview__container .block__preview h4 span:hover {
+    color: #d03021;
+  }
+  .blocks__preview__container .block__preview div {
+    font-size: 1.2rem;
+  }
+  .blocks__preview__container .block__preview div span {
+    margin: 15px;
+    width: 50%;
+    text-align: right;
+    font-size: 1.4rem;
+  }
 }

@@ -11,3 +11,16 @@
         @include customBtn(auto, 0.9rem, 15px, 5px, block, $header-background);
     }
 }
+
+@media screen and (min-width: 786px) {
+    .create__block__container {
+        .block__title__input {
+            @include inputs(150px, 1.4rem, 15px, 5px);
+            margin-bottom: 45px;
+        }
+
+        .save__block__btn {
+            @include customBtn(auto, 1.1rem, 15px, 5px, block, $header-background);
+        }
+    }
+}

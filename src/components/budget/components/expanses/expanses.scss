@@ -54,3 +54,26 @@
         }
     }
 }
+
+@media screen and (min-width: 786px) {
+    .expanses__type {
+        .expanses__title {
+            font-size: 1.1rem;
+        }
+
+        .payment__row {
+            padding: 10px 0px;
+            .payment__for {
+                font-size: 1rem;
+            }
+            .payment__amount {
+                border-radius: 10%;
+                width: 80px;
+                height: 40px;
+                font-size: 1.2rem;
+                letter-spacing: 1.2px;
+                text-align: center;
+            }
+        }
+    }
+}

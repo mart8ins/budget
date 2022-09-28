@@ -49,6 +49,7 @@
           box-shadow: 0px 4px 4px #16182a;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  font-size: 1rem;
 }
 
 .new__payment__block__container .add__payment__row__btn:hover {
@@ -56,4 +57,51 @@
   background-color: #16182a;
   -webkit-box-shadow: 0px 7px 7px #16182a;
           box-shadow: 0px 7px 7px #16182a;
+}
+
+@media screen and (min-width: 786px) {
+  .new__payment__block__container {
+    padding-bottom: 15px;
+  }
+  .new__payment__block__container .new__payment__input {
+    width: 25%;
+    margin: 10px;
+    font-weight: bold;
+    padding: 15px 15px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid #16182a;
+    text-align: center;
+    width: 150px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .new__payment__block__container .new__payment__input:focus {
+    outline: none;
+    border-bottom: 1px solid #32cd32;
+    color: #87ceeb;
+  }
+  .new__payment__block__container .add__payment__row__btn {
+    display: block;
+    margin: 35px auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 130px;
+    background-color: #282b4b;
+    color: #f0f8ff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 4px 4px #16182a;
+            box-shadow: 0px 4px 4px #16182a;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    font-size: 1.1rem;
+  }
+  .new__payment__block__container .add__payment__row__btn:hover {
+    cursor: pointer;
+    background-color: #16182a;
+    -webkit-box-shadow: 0px 7px 7px #16182a;
+            box-shadow: 0px 7px 7px #16182a;
+  }
 }

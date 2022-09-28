@@ -21,3 +21,28 @@
   -webkit-box-shadow: 0px 7px 7px #32cd32;
           box-shadow: 0px 7px 7px #32cd32;
 }
+
+@media screen and (min-width: 786px) {
+  .save__create__btn {
+    display: inline-block;
+    margin: 5px auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 180px;
+    background-color: #5bd75b;
+    color: #f0f8ff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 4px 4px #32cd32;
+            box-shadow: 0px 4px 4px #32cd32;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    font-size: 1.4rem;
+  }
+  .save__create__btn:hover {
+    cursor: pointer;
+    background-color: #32cd32;
+    -webkit-box-shadow: 0px 7px 7px #32cd32;
+            box-shadow: 0px 7px 7px #32cd32;
+  }
+}

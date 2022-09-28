@@ -42,3 +42,24 @@
         }
     }
 }
+
+@media screen and (min-width: 786px) {
+    .budget__header {
+        padding: 10px;
+        .month {
+            font-size: 1.3rem;
+        }
+        .monthly__income__heading {
+            font-size: 1.2rem;
+        }
+
+        .monthly__income__input__container {
+            .monthly__income {
+                width: 120px;
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 4px;
+            }
+        }
+    }
+}

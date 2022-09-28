@@ -32,3 +32,23 @@
   border-bottom: 1px solid #32cd32;
   color: #87ceeb;
 }
+
+@media screen and (min-width: 786px) {
+  .title__inputs .title__inputs__input {
+    font-weight: bold;
+    padding: 5px 5px;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid #16182a;
+    text-align: center;
+    width: 250px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  .title__inputs .title__inputs__input:focus {
+    outline: none;
+    border-bottom: 1px solid #32cd32;
+    color: #87ceeb;
+  }
+}

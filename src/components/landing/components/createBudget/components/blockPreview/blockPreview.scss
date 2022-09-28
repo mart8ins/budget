@@ -14,9 +14,6 @@
                 float: right;
                 color: lighten($error-color, 20%);
                 cursor: pointer;
-                &:hover {
-                    color: $error-color;
-                }
             }
         }
         div {
@@ -28,6 +25,34 @@
                 margin: 15px;
                 width: 50%;
                 text-align: right;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 786px) {
+    .blocks__preview__container {
+        .block__preview {
+            padding: 20px;
+            width: 30%;
+            margin: 15px auto;
+            h4 {
+                border-bottom: 3px solid $header-color;
+                font-size: 1.4rem;
+                span {
+                    &:hover {
+                        color: $error-color;
+                    }
+                }
+            }
+            div {
+                font-size: 1.2rem;
+                span {
+                    margin: 15px;
+                    width: 50%;
+                    text-align: right;
+                    font-size: 1.4rem;
+                }
             }
         }
     }

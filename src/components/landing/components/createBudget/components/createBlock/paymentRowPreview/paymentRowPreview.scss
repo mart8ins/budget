@@ -20,3 +20,17 @@
         @include customBtn(45px, 0.6rem, 0, 0, inline, $error-color);
     }
 }
+
+@media screen and (min-width: 786px) {
+    .payment__row__preview__container {
+        width: 30%;
+        .payment__item {
+            width: 60%;
+            font-size: 1.2rem;
+        }
+
+        .delete__row__btn {
+            @include customBtn(66px, 1rem, 0, 0, inline, $error-color);
+        }
+    }
+}

@@ -20,3 +20,19 @@
         }
     }
 }
+
+@media screen and (min-width: 786px) {
+    .budget__footer {
+        padding: 10px;
+        margin: 25px 0;
+        .footer__title {
+            color: $header-background;
+            font-size: 1.2rem;
+            padding: 10px;
+            span {
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}

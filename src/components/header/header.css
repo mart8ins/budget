@@ -5,10 +5,6 @@
   display: flex;
 }
 
-.header:hover {
-  cursor: pointer;
-}
-
 .header div:nth-child(1),
 .header div:nth-child(2),
 .header div:nth-child(3) {
@@ -49,8 +45,27 @@
   transition: 0.5s;
 }
 
-.header .app__logout button:hover {
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #42487e;
+@media screen and (min-width: 786px) {
+  .header:hover {
+    cursor: pointer;
+  }
+  .header div:nth-child(1),
+  .header div:nth-child(2),
+  .header div:nth-child(3) {
+    font-weight: bold;
+  }
+  .header div:nth-child(1) {
+    font-size: 1.2rem;
+  }
+  .header div:nth-child(2) {
+    font-size: 1.5rem;
+  }
+  .header .app__logout button {
+    font-size: 1.2rem;
+  }
+  .header .app__logout button:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #42487e;
+  }
 }

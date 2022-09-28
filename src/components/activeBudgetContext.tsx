@@ -81,7 +81,7 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
 
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
-        if (!budget.id) {
+        if (!budget.id || user.id !== budget.userId) {
             addActiveBudget();
         }
     }, [user, navigateTo, allBudgets]);

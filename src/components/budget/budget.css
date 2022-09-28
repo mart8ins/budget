@@ -18,3 +18,14 @@
   -webkit-box-shadow: 0 0 3px #16182a;
           box-shadow: 0 0 3px #16182a;
 }
+
+@media screen and (min-width: 786px) {
+  .container {
+    min-height: 40vh;
+  }
+  .container .budget__wrapper {
+    width: 35%;
+    border-radius: 5px;
+    padding: 20px;
+  }
+}

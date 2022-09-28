@@ -7,3 +7,11 @@
         @include inputs(120px, 1rem, 5px, 5px);
     }
 }
+
+@media screen and (min-width: 786px) {
+    .title__inputs {
+        .title__inputs__input {
+            @include inputs(250px, 1.6rem, 5px, 5px);
+        }
+    }
+}

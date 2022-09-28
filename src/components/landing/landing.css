@@ -5,12 +5,13 @@
 }
 
 .landing__container .select__active__budget {
-  width: 70%;
+  width: 60%;
   margin: 70px auto;
   padding: 20px 10px;
   background-color: #16182a;
   font-size: 1.2rem;
   border-radius: 10px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,4 +39,14 @@
 
 .landing__container .select__valid {
   margin-top: 180px;
+}
+
+@media screen and (min-width: 786px) {
+  .landing__container {
+    padding-top: 100px;
+  }
+  .landing__container .select__active__budget {
+    width: 20%;
+    font-size: 1.5rem;
+  }
 }

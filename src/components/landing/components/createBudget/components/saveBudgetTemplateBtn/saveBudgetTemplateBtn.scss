@@ -3,3 +3,9 @@
 .save__create__btn {
     @include customBtn(100px, 0.8rem, 5px, auto, inline-block, $green-color);
 }
+
+@media screen and (min-width: 786px) {
+    .save__create__btn {
+        @include customBtn(180px, 1.4rem, 5px, auto, inline-block, $green-color);
+    }
+}

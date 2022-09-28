@@ -61,3 +61,36 @@
         }
     }
 }
+
+@media screen and (min-width: 786px) {
+    .auth__container {
+        .auth__box {
+            width: 20%;
+            .auth__change {
+                .auth__option {
+                    padding: 15px;
+                    font-size: 1.5rem;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            .auth__inputs {
+                .auth__error {
+                    font-size: 1.3rem;
+                }
+
+                .input__ {
+                    width: 60%;
+                    font-size: 1.2rem;
+                    padding: 8px;
+                    margin: 10px;
+                }
+                .submit__button {
+                    @include customBtn(100px, 1.1rem, 20px, 0, default, $header-background);
+                    border: 2px solid white;
+                }
+            }
+        }
+    }
+}
