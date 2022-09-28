@@ -12,7 +12,6 @@ function Budget({}: Props) {
     const {
         budget: { expanses, totals },
     } = useContext(ActiveBudgetContext);
-
     return (
         <div className="container">
             <div className="budget__wrapper">

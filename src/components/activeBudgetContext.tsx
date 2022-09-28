@@ -77,12 +77,12 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
 
     useEffect(() => {
         calculateTotals();
-    }, [budget.expanses]);
+    }, [budget.expanses, budget.monthlyIncome]);
 
     // SET ACTIVE BUDGET FOR USER
     useEffect(() => {
         addActiveBudget();
-    }, [allBudgets]);
+    }, [allBudgets, user]);
 
     const addActiveBudget = () => {
         const activeBudget = allBudgets.filter((budget) => {
@@ -90,8 +90,9 @@ const ActiveBudgetContextprovider = ({ children }: any) => {
         });
         if (activeBudget.length > 0) {
             setBudget({
-                ...budget,
+                remainingMoney: budget.remainingMoney,
                 ...activeBudget[0],
+                totals: { payment: budget.totals.payment, payed: budget.totals.payed, remaining: budget.totals.remaining },
             });
         }
     };
