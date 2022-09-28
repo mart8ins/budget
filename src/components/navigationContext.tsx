@@ -19,7 +19,6 @@ const NavigationContextProvider = ({ children }: any) => {
     const seeLandingPage = () => {
         setNavigateTo("");
     };
-
     return (
         <NavigationContext.Provider value={{ navigateTo, createTemplate, createBudget, seeBudgets, seeLandingPage }}>
             {children}

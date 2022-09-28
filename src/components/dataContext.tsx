@@ -47,7 +47,7 @@ const DataContextProvider = ({ children }: any) => {
             return newBudget;
         });
         setAllBudgets(updatedBudgets);
-        axios.post("http://localhost:3001/budget/active", { budgetId: budgetId });
+        axios.post("http://localhost:3001/budget/active", { budgetId: budgetId, userId: user.id });
     };
 
     const updateBudgetWithData = async (budget: NewBudget) => {
