@@ -3,6 +3,7 @@ import { NewBudget } from "../models/models";
 import { AuthContext } from "./authContext";
 import { NavigationContext } from "./navigationContext";
 import axios from "axios";
+import { serverUrl } from "../vars";
 
 interface DataContextInterface {
     allTemplates: NewBudget[];
@@ -25,15 +26,14 @@ const DataContextProvider = ({ children }: any) => {
     const saveTemplateInDataContext = (template: NewBudget) => {
         setAllTemplates([template, ...allTemplates]);
         // UPDATE DB WITH NEW TEMPLATE
-        axios.post("http://localhost:3001/budget/add", { data: template });
+        axios.post(`${serverUrl}budget/add`, { data: template });
     };
-
     // BUDGETS
     const [allBudgets, setAllBudgets] = useState<NewBudget[]>([]);
     const saveBudgetInDataContext = (budget: NewBudget) => {
         setAllBudgets([budget, ...allBudgets]);
         // UPDATE DB WITH NEW BUDGET
-        axios.post("http://localhost:3001/budget/add", { data: budget });
+        axios.post(`${serverUrl}budget/add`, { data: budget });
     };
 
     const saveBudgetToActive = (budgetId: string) => {
@@ -47,7 +47,7 @@ const DataContextProvider = ({ children }: any) => {
             return newBudget;
         });
         setAllBudgets(updatedBudgets);
-        axios.post("http://localhost:3001/budget/active", { budgetId: budgetId, userId: user.id });
+        axios.post(`${serverUrl}budget/active`, { budgetId: budgetId, userId: user.id });
     };
 
     const updateBudgetWithData = async (budget: NewBudget) => {
@@ -57,7 +57,7 @@ const DataContextProvider = ({ children }: any) => {
                 return b.id !== budget.id;
             });
             setAllBudgets([budget, ...removedUpdatable]);
-            await axios.post("http://localhost:3001/budget/update", { data: budget });
+            await axios.post(`${serverUrl}budget/update`, { data: budget });
         }
     };
 
@@ -74,7 +74,7 @@ const DataContextProvider = ({ children }: any) => {
             });
             setAllBudgets(filtered);
         }
-        axios.post("http://localhost:3001/budget/delete", { id: budgetId });
+        axios.post(`${serverUrl}budget/delete`, { id: budgetId });
     };
 
     useEffect(() => {

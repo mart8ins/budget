@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { AuthContextInterface, User } from "../models/models";
 import axios from "axios";
+import { serverUrl } from "../vars";
 
 export const AuthContext = createContext({} as AuthContextInterface);
 
@@ -22,7 +23,7 @@ const AuthContextProvider = ({ children }: any) => {
     const loggIn = async (signUp: boolean, credentials: { username: string; password: string }) => {
         // SIGN UP NEW USER
         if (signUp) {
-            const resp = await axios.post("http://localhost:3001/budget/user", {
+            const resp = await axios.post(`${serverUrl}budget/user`, {
                 username: credentials.username,
                 password: credentials.password,
                 action: signUp,
@@ -44,13 +45,16 @@ const AuthContextProvider = ({ children }: any) => {
         }
         if (!signUp) {
             // SIGN IN
-            const resp = await axios.post("http://localhost:3001/budget/user", {
+
+            const resp = await axios.post(`${serverUrl}budget/user`, {
                 username: credentials.username,
                 password: credentials.password,
                 action: signUp,
             });
             if (resp.data.status) {
-                const budgetResponse = await axios.get("http://localhost:3001/budget", { params: { userId: resp.data.userId } });
+                const budgetResponse = await axios.get(`${serverUrl}budget`, {
+                    params: { userId: resp.data.userId },
+                });
                 await setUser({
                     id: resp.data.userId,
                     username: credentials.username,
